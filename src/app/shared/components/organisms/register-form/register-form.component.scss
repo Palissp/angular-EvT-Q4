@@ -1,0 +1,38 @@
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__container-input {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+  }
+}
+
+.header-card {
+  display: grid;
+  justify-content: center;
+}
+
+hr.line-card {
+  border-top: 1px solid rgb(184, 153, 153);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 48px;
+  cursor: pointer;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 48px;
+}
