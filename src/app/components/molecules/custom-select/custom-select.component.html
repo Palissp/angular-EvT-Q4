@@ -1,0 +1,9 @@
+<app-custom-label [label]="label"></app-custom-label>
+<select [(ngModel)]="value" (ngModelChange)="onChange($event)" (change)="onChange($event)" class="custom--input" name=""
+    id="">
+    <option value="">{{optionDefault}}</option>
+    <option *ngFor="let element of data" [value]="element[codigo]">
+
+        {{element[option]}}</option>
+
+</select>

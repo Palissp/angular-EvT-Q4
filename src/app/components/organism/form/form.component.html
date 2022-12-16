@@ -1,0 +1,45 @@
+<form class="form" [formGroup]="regsterForm" (ngSubmit)="save()" novalidate>
+    <div class="form__header">
+        <h1> Formulario de registro</h1>
+    </div>
+    <div class="form__inputs">
+        <app-custom-input [isValid]="esValido(getControl('name'))" [isInvalid]="esInvalido(getControl('name'))"
+            [label]="'Nombres'" formControlName="name"></app-custom-input>
+        <app-custom-input [isValid]="esValido(getControl('lastname'))" [isInvalid]="esInvalido(getControl('lastname'))"
+            [label]="'Apellidos'" formControlName="lastname"></app-custom-input>
+
+        <app-custom-input [isValid]="esValido(getControl('email'))" [isInvalid]="esInvalido(getControl('email'))"
+            [label]="'Correo Electronico'" formControlName="email"></app-custom-input>
+        <app-custom-input [isValid]="esValido(getControl('phone'))" [isInvalid]="esInvalido(getControl('phone'))"
+            [label]="'Numero de teléfono'" formControlName="phone"></app-custom-input>
+        <app-custom-select formControlName="provincia" [data]="province$ |async "
+            optionDefault="Seleccione la provincia" label="Provincia" codigo="codigo"
+            option="provincia"></app-custom-select>
+        <app-custom-select formControlName="ciudad" [data]="cities$ | async" codigo="id" option="canton"
+            optionDefault="Seleccione la ciudad" label="Ciudad"></app-custom-select>
+    </div>
+    <div class="form__check">
+        <div class="flex">
+            <span class="form__spam">Seleccione los productos a contratar:</span>
+            <app-custom-button (btnClick)="recargar()" type="button" height="56px" bColor="#DEE3ED"
+                bColorHover="#bbc0c9" color="#0F265C">Recargar</app-custom-button>
+        </div>
+
+        <app-check-box [label]="product.name" [codigo]="product.id" *ngFor="let product of products$ | async"
+            (option)="procesaPropagar($event)"></app-check-box>
+
+        <span class="form__spam">Desea recibir información adicional a su correo electrónico?</span>
+        <div class="form__question">
+            <app-chec-radius formControlName="informacion" label="No"></app-chec-radius>
+            <app-chec-radius formControlName="informacion2" label="Si"></app-chec-radius>
+        </div>
+        <app-check-box [label]="'¿Aceptas nuestros términos y condiciones?'" [codigo]="false"
+            (option)="procesaPropagarQuestion($event)"></app-check-box>
+    </div>
+    <div class="form__footer">
+        <app-custom-button height="56px" bColor="#DEE3ED" bColorHover="#bbc0c9" color="#0F265C"
+            type="button">Reiniciar</app-custom-button>
+        <app-custom-button bColor="#FFF199" color="#0F265C" bColorHover="#ffef88"
+            height="56px">Enviar</app-custom-button>
+    </div>
+</form>

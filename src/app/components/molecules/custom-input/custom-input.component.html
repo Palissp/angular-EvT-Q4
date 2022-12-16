@@ -1,0 +1,11 @@
+<div class="container">
+    <app-custom-label [label]="label"></app-custom-label>
+    <input type="text" class="custom--input" [(ngModel)]="value" (ngModelChange)="onChange($event)"
+        [ngClass]="{'error': isInvalid, 'valid' : isValid }" (blur)="onTouch()" [placeholder]="placeholder">
+    <app-custom-error-message *ngIf="isInvalid" message="Este campo es requerido!"></app-custom-error-message>
+
+</div>
+<!-- <label class="form__label" for="Nombre">{{label}}</label>
+<input type="text" class="custom--input" [formControl]="input"
+    [ngClass]="{'error': isInvalid, 'valid' : isValid }" [placeholder]="placeholder">
+<span *ngIf="isInvalid" class=" error__message">{{label}} no válido</span> -->
