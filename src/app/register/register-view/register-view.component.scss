@@ -1,0 +1,27 @@
+$wrap: "register-view";
+
+.#{$wrap} {
+
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    background: white;
+    height: 5vh;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+  }
+
+  &__logo {
+    width: 202px;
+    height: 44px;
+  }
+
+  &__register-form {
+    display: flex;
+    justify-content: center;
+  }
+}

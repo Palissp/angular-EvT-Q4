@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #F3F6F9;
+  margin: 0 !important;
+  font-weight: normal !important;
+  font-family: prelo-medium, Helvetica, Arial, Sans, Sans-serif, serif;
+}
+
+h2 {
+  margin: 0;
+}
+
+.pe-2 {
+  padding-right: 8px;
+}
+
+.pe-16 {
+  padding-right: 64px;
+}
