@@ -8,6 +8,7 @@ import { SuccessAdviceComponent } from './modules/success-advice/success-advice.
 import { ErrorAdviceComponent } from './modules/error-advice/error-advice.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
