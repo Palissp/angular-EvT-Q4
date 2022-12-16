@@ -1,0 +1,112 @@
+<div class="login">
+  <form [formGroup]="form">
+    <div class="login__data">
+      <app-input
+        class="login__data-item"
+        label="Nombres"
+        [form]="form"
+        [control]="'name'"
+      ></app-input>
+      <app-input
+        class="login__data-item"
+        label="Apellidos"
+        [form]="form"
+        [control]="'lastName'"
+      ></app-input>
+
+      <app-input
+        class="login__data-item"
+        label="Correo Electrónico"
+        [form]="form"
+        [control]="'email'"
+      ></app-input>
+      <app-input
+        class="login__data-item"
+        label="Número de teléfono"
+        [form]="form"
+        [control]="'phone'"
+      ></app-input>
+      <app-select-province
+        class="login__data-item"
+        [label]="'Provincia'"
+        [list]="provinces"
+        [form]="form"
+        [control]="'provincia'"
+        label="Posición"
+        (provinceSelected)="getCityByProvince($event)"
+      ></app-select-province>
+      <app-select-city
+        class="login__data-item"
+        [label]="'Ciudad'"
+        [list]="cities"
+        [form]="form"
+        [control]="'ciudad'"
+        label="Posición"
+      ></app-select-city>
+      <!--  <app-select class="login__data-item" [positions]="Ciudad" [form]="form" [control]="'ciudad'" label="Posición"></app-select>
+    <app-input class="login__data-item" label="Imagen" [form]="form" [control]="'informacion'"></app-input> -->
+
+    </div>
+    <br />
+    <div class="login__data-section">
+      <div>
+        <label>Seleccione los productos a contratar</label>
+        <div *ngFor="let item of products; let i = index">
+          <input
+            type="checkbox"
+            formArrayName="productos"
+            [value]="item.id"
+            (change)="onCheckboxChange($event)"
+            class="mb-2"
+          />
+          {{ item.name }}
+          <br />
+        </div>
+      </div>
+      <br>
+      <div>
+        <label
+          >Desea recibir información adicional a su correo electrónico?</label
+        >
+        <span class="login__data-radio">
+          <span>
+            <input
+              id="no"
+              type="radio"
+              value="false"
+              name="informacion"
+              formControlName="informacion"
+            />
+            <label class="custom-control-label" for="no">No</label>
+          </span>
+          <span class="login__data-radio--padding">
+            <input
+              id="si"
+              type="radio"
+              value="true"
+              name="informacion"
+              formControlName="informacion"
+            />
+            <label class="custom-control-label" for="si">Si</label>
+          </span>
+        </span>
+      </div>
+      <br />
+      <div>
+        <input type="checkbox" [value]="disclaimer" class="mb-2" />
+        ¿Aceptas nuestros términos y condiciones?
+      </div>
+    </div>
+  </form>
+
+  <div class="login__footer">
+    <button (click)="reset()" class="login__footer-reset">Reiniciar</button>
+    <button
+      (click)="send()"
+      [disabled]="!form.valid"
+      class="login__footer-submit"
+    >
+      Enviar
+    </button>
+  </div>
+</div>

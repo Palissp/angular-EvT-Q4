@@ -1,0 +1,18 @@
+<div [formGroup]="form" class="input">
+  <label class="input__label">{{ label }}</label>
+  <input
+    class="input__field"
+    type="text"
+    [formControlName]="control"
+    placeholder="{{ placeHolder }}"
+    (keyup)="onKeyUp($event)"
+  />
+  <label
+    class="error"
+    id="error-description"
+    *ngIf="form.controls[control].errors?.['required']  && 
+  (form.controls[control].dirty || form.controls[control].touched)"
+  >
+   Este campo es requerido!
+  </label>
+</div>
