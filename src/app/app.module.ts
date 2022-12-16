@@ -5,6 +5,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
 import { RegisterViewComponent } from './register/register-view/register-view.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {ProductService} from "./core/services/product-service/product.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,9 +17,14 @@ import { RegisterViewComponent } from './register/register-view/register-view.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProductService,
+    HttpClient
+  ],
   bootstrap: [AppComponent],
   schemas: [],
 })

@@ -50,10 +50,10 @@
         <p class="register-form__label">
           Seleccione los productos a contratar:
         </p>
-        <div class="register-form__flex-container">
-          <input type="checkbox" class="register-form__checkbox">
+        <div class="register-form__flex-container" *ngFor="let product of products">
+          <input type="checkbox" [value]="product.id" class="register-form__checkbox">
           <p class="register-form__checkbox-label">
-            Opción 1
+            {{product.name}}
           </p>
         </div>
       </div>
