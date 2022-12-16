@@ -1,0 +1,16 @@
+.checkbox {
+  padding: 20px;
+
+  &__label {
+      font-size: 0.9rem;
+  }
+
+  &__field {
+      width: 100%;
+  }
+
+  &__errors {
+      color: var(--error-color);
+      font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="checkbox">
+
+  <input type="checkbox" id="subscribeNews" [formControlName]="control" [name]="control" [value]="form.controls[control].value" />
+  <label class="checkbox__label">{{label}}</label>
+<br>
+  <label class="checkbox__errors" id="error-description" *ngIf="form.controls[control]?.errors?.['required']">
+    Campo requerido
+  </label>
+</div>

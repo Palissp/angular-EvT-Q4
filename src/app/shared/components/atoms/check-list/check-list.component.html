@@ -1,0 +1,12 @@
+<div [formGroup]="form" class="checklist">
+  <label class="checklist__label">{{label}}</label>
+  <ng-container *ngFor="let option of options">
+    <div class="checklist__field">
+      <input type="checkbox" [id]="option.value" [name]="option.value" [value]="option.value" (change)="checkValue(option)">
+      <label [for]="option.value">{{option.label}}</label><br>
+    </div>
+  </ng-container>
+  <label class="checklist__errors" id="error-description" *ngIf="form.controls[control]?.errors?.['required']">
+    Campo requerido
+  </label>
+</div>

@@ -1,0 +1,12 @@
+<div [formGroup]="form" class="radiobtn">
+  <label class="radiobtn__label">{{label}}</label>
+  <ng-container *ngFor="let option of options">
+    <div class="radiobtn__field">
+      <input type="radio" [id]="option.value" [name]="control" [value]="option.value" (change)="checkValue(option)">
+      <label [for]="option.value">{{option.label}}</label><br>
+    </div>
+  </ng-container>
+  <label class="radiobtn__errors" id="error-description" *ngIf="form.controls[control]?.errors?.['required']">
+    Campo requerido
+  </label>
+</div>

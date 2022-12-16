@@ -1,0 +1,38 @@
+.register {
+  width: 80%;
+  background-color: #FFFFFF;
+  margin: auto;
+  padding: 50px;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__form {
+    flex: 50%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 50%;
+    }
+
+    &__button {
+      flex: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+
+      &-reset {
+        color: #0F265C;
+        background-color: #DEE3ED;
+      }
+
+      &-send {
+        color: #0F265C;
+        background-color: #FFF199;
+      }
+    }
+  }
+
+}
