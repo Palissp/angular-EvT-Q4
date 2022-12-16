@@ -1,0 +1,21 @@
+.select {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    &__label {
+        font-size: 0.9rem;
+    }
+
+    &__field {
+        width: 100%;
+    }
+
+    &__errors {
+        color: var(--error-color);
+        font-size: 0.7rem;
+    }
+}
+
+select.ng-invalid {
+    border: 1px solid red !important;
+}

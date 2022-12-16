@@ -1,0 +1,7 @@
+<div [formGroup]="form" class="input">
+  <label class="input__label">{{label}}</label>
+  <input class="input__field" type="text" [formControlName]="control" placeholder="{{ placeHolder }}" (keyup)="onKeyUp($event)" />
+  <label class="input__errors" id="error-description" *ngIf="form.controls[control].errors?.['required']">
+      Descripción es requerida
+  </label>
+</div>

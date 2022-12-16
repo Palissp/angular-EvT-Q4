@@ -1,0 +1,33 @@
+<div class="register">
+  <div class="register__header">
+    <h2>Formulario de registro</h2>
+  </div>
+  <div *ngIf="showForm" class="register__form" [formGroup]="form">
+    <app-input class="register__form__item" label="Nombres" [form]="form" [control]="'name'"></app-input>
+    <app-input class="register__form__item" label="Apellidos" [form]="form" [control]="'lastname'"></app-input>
+    <app-input class="register__form__item" label="Correo Electrónico" [form]="form" [control]="'email'"></app-input>
+    <app-input class="register__form__item" label="Número de teléfono" [form]="form" [control]="'phone'"></app-input>
+    <app-select class="register__form__item" [options]="provinces" [form]="form" [control]="'provincia'"
+      label="Provincia">
+    </app-select>
+    <app-select class="register__form__item" [options]="provinces" [form]="form" [control]="'ciudad'" label="Ciudad">
+    </app-select>
+
+    <app-check-list class="register__form__item" [options]="products" [form]="form" [control]="'productos'"
+      label="Seleccione los productos a contratar">
+    </app-check-list>
+    <app-radio-button class="register__form__item" [options]="informationOpts" [form]="form" [control]="'informacion'"
+      label="Desea recibir información adicional a su correo electrónico?">
+    </app-radio-button>
+
+    <app-checkbox class="register__form__item" [form]="form" [control]="'terms'"
+      label="¿Aceptas nuestros términos y condiciones?">
+
+    </app-checkbox>
+
+    <div class="register__form__button">
+      <button class="register__form__button-reset" (click)="reset()" >Reiniciar</button>
+      <button class="register__form__button.send" (click)="saveRegister()">Enviar</button>
+    </div>
+  </div>
+</div>
