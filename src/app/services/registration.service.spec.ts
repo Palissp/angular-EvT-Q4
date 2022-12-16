@@ -45,6 +45,20 @@ describe('RegistrationService', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);
     });
+    it('test fn #getEstadoProvincias', (doneFn) => {
+
+        const mockData: any = {}
+
+        myService.getEstados().subscribe(data => {
+            expect(data).toEqual(mockData);
+            doneFn();
+        })
+
+        const url = `${API_URL}/provincias`;
+        const req = httpController.expectOne(url);
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockData);
+    });
     it('test fn #getProvinciaById', (doneFn) => {
 
         const mockData: any = {}
@@ -55,7 +69,7 @@ describe('RegistrationService', () => {
             doneFn();
         })
 
-        const url = `${API_URL}/estado/provincia/${mockParameter}`;
+        const url = `${API_URL}/estado/provincias/${mockParameter}`;
         const req = httpController.expectOne(url);
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);

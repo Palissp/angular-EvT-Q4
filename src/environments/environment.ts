@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiHref: 'https://api-q4.onrender.com/'
+  apiHref: 'https://api-q4.onrender.com'
 };
 
 /*

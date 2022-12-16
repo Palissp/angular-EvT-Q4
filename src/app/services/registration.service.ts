@@ -28,10 +28,10 @@ export class RegistrationService {
         return this.httpClient.get<ProductosInterface[]>(this.URL+'/productos').pipe(catchError(handleError));
     }
     public getEstados(): Observable<ProvinciaInterface[]> {
-        return this.httpClient.get<ProvinciaInterface[]>(this.URL+'/estado/provincia').pipe(catchError(handleError));
+        return this.httpClient.get<ProvinciaInterface[]>(this.URL+'/estado/provincias').pipe(catchError(handleError));
     }
     public getProvinciaById(provincia:string ): Observable<CantonInterface[]> {
-        return this.httpClient.get<CantonInterface[]>(this.URL+'/estado/provincia/'+provincia).pipe(catchError(handleError));
+        return this.httpClient.get<CantonInterface[]>(this.URL+'/estado/provincias/'+provincia).pipe(catchError(handleError));
     }
     public postRegistro(registrationFormObject:RegistrationFormInterface): Observable<RegistrationFormInterface> {
         const body = JSON.stringify(registrationFormObject);
