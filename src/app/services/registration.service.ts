@@ -8,6 +8,9 @@ import {catchError} from 'rxjs/operators';
 import {handleError} from "../shared/functions/serviceValidation";
 import {RegistrationFormInterface} from "../data/interfaces/registrationForm.interface";
 import {environment} from "../../environments/environment";
+import {ProductosInterface} from "../data/interfaces/productos.interface";
+import {ProvinciaInterface} from "../data/interfaces/provincias.interface";
+import {CantonInterface} from "../data/interfaces/canton.interface";
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +18,7 @@ import {environment} from "../../environments/environment";
 export class RegistrationService {
     private endpointProductos = 'productos';
     private endpointProvincias = 'estado/provincias';
-    private URL = environment.apiHref + this.endpoint;
+    private URL = environment.apiHref;
     private httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
     };
@@ -23,7 +26,17 @@ export class RegistrationService {
     constructor(private httpClient: HttpClient) {
     }
 
-    public getAll(): Observable<RegistrationFormInterface[]> {
-        return this.httpClient.get<RegistrationFormInterface[]>(this.URL).pipe(catchError(handleError));
+    public getProductos(): Observable<ProductosInterface[]> {
+        return this.httpClient.get<ProductosInterface[]>(this.URL+'/productos').pipe(catchError(handleError));
+    }
+    public getEstados(): Observable<ProvinciaInterface[]> {
+        return this.httpClient.get<ProvinciaInterface[]>(this.URL+'/estado/provincia').pipe(catchError(handleError));
+    }
+    public getProvinciaById(provincia:string ): Observable<CantonInterface[]> {
+        return this.httpClient.get<CantonInterface[]>(this.URL+'/estado/provincia/'+provincia).pipe(catchError(handleError));
+    }
+    public postRegistro(registrationFormObject:RegistrationFormInterface): Observable<RegistrationFormInterface> {
+        const body = JSON.stringify(registrationFormObject);
+        return this.httpClient.post<RegistrationFormInterface>(this.URL,body, this.httpOptions).pipe(catchError(handleError));
     }
 }
