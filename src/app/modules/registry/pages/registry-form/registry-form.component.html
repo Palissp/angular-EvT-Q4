@@ -1,0 +1,48 @@
+<div class="form">
+    <div class="form__header">
+        <div class="form__title">
+            Formulario de registro
+        </div>
+    </div>
+
+    <form [formGroup]="frm" *ngIf="!errorLoadData" class="form__body" >
+       <div class="form__input">
+        <app-input formControlName="name" label="Nombres" [minLength]="3" [maxLength]="40" [error]="!frm!.controls['name'].valid"></app-input>
+       </div>
+       <div class="form__input">
+        <app-input formControlName="lastname" label="Apellidos" [minLength]="3" [maxLength]="40" [error]="!frm!.controls['lastname'].valid"></app-input>
+       </div>
+       <div class="form__input">
+        <app-input formControlName="email" label="Correo Electrónico" [maxLength]="40" [error]="!frm!.controls['email'].valid"></app-input>
+       </div>
+       <div class="form__input">
+        <app-input formControlName="phone" label="Número Telefónico" [maxLength]="10" [error]="!frm!.controls['phone'].valid"></app-input>
+       </div>
+       <div class="form__dropdown">
+        <app-dropdown label="Provincia" [optionList]="parseProvinceToOption()" (byChange)="onSelectProvince($event)"></app-dropdown>
+       </div>
+       <div class="form__dropdown">
+        <app-dropdown label="Ciudad" [optionList]="parseCantonToOption()" (byChange)="onSelectCanton($event)"></app-dropdown>
+       </div>
+       <label for="" class="form__label">Seleccione los productos a contratar:</label>
+       <div class="form__checkbox">
+        <app-checkbox *ngFor="let product of productList" [label]="product.name" [id]="product.id"></app-checkbox>
+       </div>
+       <label for="" class="form__label">Desea recibir información adicional a su correo electrónico?</label>
+       <div class="form__radio">
+        <app-radio-button label="No"></app-radio-button>
+        <app-radio-button label="Si"></app-radio-button>
+       </div>
+       <div class="form__terms">
+        <app-checkbox [isChecked]="isCheckedTerms" label="¿Aceptas nuestros términos y condiciones?"></app-checkbox>
+       </div>
+    </form>
+
+    <app-finish-form *ngIf="errorLoadData" [isSuccess]="!errorLoadData"></app-finish-form>
+    
+    
+    <div class="form__footer">
+        <app-button text="Reiniciar" typeButton="secondary" (onClick)="onRestartClick()"></app-button>
+        <app-button text="Enviar" [disabled]="!frm.valid && isCheckedTerms" typeButton="primary" (onClick)="onSaveClick()"></app-button>
+    </div>
+</div>
