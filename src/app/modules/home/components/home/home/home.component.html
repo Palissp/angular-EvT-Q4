@@ -1,0 +1,129 @@
+<div
+style="background-color: white; border: none;"><img src="assets/banco-logo.png"></div>
+
+<div class="content">
+  <div class="large-modal header">
+
+  </div>
+  <div  style="padding: 20px">
+      <form [formGroup]="formRegister">
+
+  <div class="register-form">
+
+   <div class="register-form__content-column">
+    <h2>Formulario de Registro</h2>
+    <div class="register-form__wrapper">
+      <div class="register-form__inputs-wrapper">
+
+        <div>
+          <label for="form-name">Nombres:</label>
+          <input type="text"
+              [ngClass]="{'invalid-input': formRegister.controls['name'].invalid && formRegister.controls['name'].touched}"
+              id="player-fname" formControlName="name">
+          <span *ngIf="formRegister.controls['name'].invalid && formRegister.controls['name'].touched"
+              class="error-message">Este campo es requerido</span>
+        </div>
+        <!-- <div *ngIf="formRegister?.errors && (name?.errors['required'] !== null)" class="error-message">
+          Content is required
+        </div> -->
+
+        <div class="register-form__input">
+          <label for="form-lastName">Apellidos:</label>
+          <input type="text"
+              [ngClass]="{'invalid-input': formRegister.controls['lastName'].invalid && formRegister.controls['lastName'].touched}"
+              id="player" formControlName="lastName">
+          <span *ngIf="formRegister.controls['lastName'].invalid && formRegister.controls['lastName'].touched"
+              class="error-message">Este campo es requerido</span>
+        </div>
+
+        <div class="register-form__input">
+          <label for="form-email">Email:</label>
+          <input type="text"
+              [ngClass]="{'invalid-input': formRegister.controls['email'].invalid && formRegister.controls['email'].touched}"
+              id="player" formControlName="email">
+          <span *ngIf="formRegister.controls['email'].invalid && formRegister.controls['email'].touched"
+              class="error-message">Este campo es requerido</span>
+        </div>
+
+        <div class="register-form__input">
+          <label for="form-phone">Telefono:</label>
+          <input type="text"
+              [ngClass]="{'invalid-input': formRegister.controls['phone'].invalid && formRegister.controls['phone'].touched}"
+              id="player" formControlName="phone">
+          <span *ngIf="formRegister.controls['phone'].invalid && formRegister.controls['phone'].touched"
+              class="error-message">Este campo es requerido</span>
+        </div>
+
+        <!-- <div class="register-form__input">
+         <label for="form-image">Imagen:</label>
+          <input  formControlName="image"
+              type="text"
+              (change)="chargeImage()">
+        </div> -->
+
+        <div class="register-form__input">
+         <label for="form-provincia">Provincia:</label>
+       <select  formControlName="provincia">
+       <option *ngFor="let provincia of provincias">{{provincias}}</option>
+
+       </select>
+        </div>
+
+        <div class="register-form__input">
+          <label for="form-ciudad">Cuidad:</label>
+        <select  formControlName="provincia">
+        <option *ngFor="let registrar of registro">{{registrar.ciudad}}</option>
+
+        </select>
+         </div>
+
+        <div class="register-form__input">
+          <label for="form-attack">Seleccione los productos a contratar:</label>
+          <input formControlName="productos"
+          type="checkbox"
+          >
+         </div>
+
+         <div class="register-form__input">
+          <label for="form-information">Desea recibir información adicional a su correo electrónico:</label>
+          <input  formControlName="information"
+          type="radio"
+          >
+         </div>
+
+         <div class="register-form__input">
+          <label for="form-terms">Aceptas nuestros terminos y condiciones:</label>
+          <input formControlName="productos"
+          type="checkbox"
+          >
+         </div>
+
+
+      </div>
+      <div class="register-form__button-wrapper">
+        <button (click)="getFormRegister()" [disabled]="isButtonDisabled">
+            Reiniciar
+          </button>
+      <div class="register-form__button-wrapper">
+          <button (click)="getFormRegister()" [disabled]="isButtonDisabled">
+              Enviar
+            </button>
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+</div>
+      </form>
+  </div>
+</div>
+
+<!-- <div>
+  <span>{{home.title}}</span>
+  <hr>
+  {{catalogos | json}}
+  <hr>
+  {{provincias | json}}
+</div> -->
+
