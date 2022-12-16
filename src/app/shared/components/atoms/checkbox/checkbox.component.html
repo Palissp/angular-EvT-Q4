@@ -1,0 +1,12 @@
+<div  class="checkbox" (click)="onClickCheckbox()">
+    <input
+      [id]="id"
+      type="checkbox"
+      [name]="label"
+      [disabled]="disabled"
+      [checked]="isChecked"
+    />
+    <label class="checkbox__text" [for]="label">
+      {{label}}
+    </label>
+  </div>

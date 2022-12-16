@@ -1,0 +1,27 @@
+<div class="wrapper" class="error'">
+    <label>
+      <div *ngIf="this.label" class="label-wrapper">
+        <span class="label">{{ this.label }}</span>
+      </div>
+      <div class="input-wrapper">
+        <input
+          (change)="this.onChange($event)"
+          [disabled]="disabled"
+          [id]="id"
+          [name]="name"
+          [placeholder]="placeholder"
+          [readonly]="readonly"
+          [value]="value"
+          [maxLength]="maxLength"
+          [minLength]="minLength"
+          autocomplete="off"
+          lang="es" />
+      </div>
+    </label>
+    <div class="helper-wrapper" *ngIf="error">
+      <span class="helper-text" class="error">
+          Error en el campo
+      </span>
+    </div>
+  </div>
+  

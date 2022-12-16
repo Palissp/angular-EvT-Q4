@@ -1,0 +1,5 @@
+<label [attr.disabled]="disabled" [id]="id" [for]="label" class="radio-button-content" (click)="onSelected($event)">
+    {{label}}
+    <input type="radio" [checked]="selected" [id]="label">
+    <span class="checkmark"></span>
+</label>
