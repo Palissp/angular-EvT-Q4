@@ -31,7 +31,13 @@ export class MainFormComponent implements OnInit {
         builder: FormBuilder,
         ) {
         this.form = builder.group({
-            name: "",
+            name: "",  lastName: "Doe",
+            email: "",
+            phone: "",
+            provincia: "",
+            ciudad: "",
+            productos: [],
+            informacion: false,
         });
     }
 

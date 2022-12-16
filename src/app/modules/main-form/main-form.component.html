@@ -7,36 +7,36 @@
                 <label class="input__label">
                     Nombres
                 </label>
-                <input class="input__textInput" type="text" placeholder="Nombres" name="first" formControlName="first" [(ngModel)]="example.name">
+                <input class="input__textInput" type="text" placeholder="Nombres" name="name" formControlName="name" [(ngModel)]="example.name">
                 <p class="input__alertMessage">Este campo es requerido!</p>
             </div>
             <div class="form__textInput">
-                <label class="input__label" for="last-name">
+                <label class="input__label" >
                     Apellidos
                 </label>
-                <input class="input__textInput" id="last-name" type="text" placeholder="Doe">
+                <input class="input__textInput" type="text" placeholder="Apellido" name="lastName" formControlName="lastName" [(ngModel)]="example.lastName">
                 <p class="input__alertMessage">Este campo es requerido!</p>
             </div>
         </div>
         <div class="form__row">
             <div class="form__textInput">
-                <label class="input__label" for="email">
+                <label class="input__label" >
                     Correo Electrónico
                 </label>
-                <input class="input__textInput" id="email" type="text" placeholder="Jane">
+                <input class="input__textInput" id="email" type="text" placeholder="email"  name="email" formControlName="email" [(ngModel)]="example.email">
                 <p class="input__alertMessage">Este campo es requerido!</p>
             </div>
             <div class="form__textInput">
-                <label class="input__label" for="phone">
+                <label class="input__label" >
                     Número de teléfono
                 </label>
-                <input class="input__textInput" id="phone" type="text" placeholder="Doe">
+                <input class="input__textInput" id="phone" type="text" placeholder="phone"   name="phone" formControlName="phone" [(ngModel)]="example.phone">
                 <p class="input__alertMessage">Este campo es requerido!</p>
             </div>
         </div>
         <div class="form__row">
             <div class="form__textInput">
-                <label class="input__label" for="province">
+                <label class="input__label" >
                     Provincia
                 </label>
                 <div class="relative">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="form__textInput">
-                <label class="input__label" for="city">
+                <label class="input__label" >
                     Ciudad
                 </label>
                 <div class="relative">

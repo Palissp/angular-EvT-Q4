@@ -16,8 +16,6 @@ import {CantonInterface} from "../data/interfaces/canton.interface";
     providedIn: 'root',
 })
 export class RegistrationService {
-    private endpointProductos = 'productos';
-    private endpointProvincias = 'estado/provincias';
     private URL = environment.apiHref;
     private httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
