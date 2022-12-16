@@ -1,0 +1,141 @@
+<div class="main-container">
+  <header class="main-container__header">
+    <img src="assets/banco-logo.png" alt="banco-logo" />
+  </header>
+
+  <main class="main-container__main">
+    <form class="form" [formGroup]="registerForm">
+      <div class="form__header">
+        <h2>Formulario de registro</h2>
+      </div>
+
+      <div class="form__body" *ngIf="formStatus === 'filling'">
+        <div class="grid">
+          <evt-input
+            ngDefaultControl
+            formControlName="name"
+            idElement="names"
+            label="Nombres"
+            [disabled]="isLoading"
+          ></evt-input>
+
+          <evt-input
+            ngDefaultControl
+            formControlName="lastname"
+            idElement="lastnames"
+            label="Apellidos"
+            [disabled]="isLoading"
+          ></evt-input>
+
+          <evt-input
+            ngDefaultControl
+            formControlName="email"
+            idElement="email"
+            label="Correo Electrónico"
+            [disabled]="isLoading"
+          ></evt-input>
+
+          <evt-input
+            ngDefaultControl
+            formControlName="phone"
+            idElement="phone"
+            label="Número de teléfono"
+            [disabled]="isLoading"
+          ></evt-input>
+
+          <evt-select
+            ngDefaultControl
+            formControlName="province"
+            idElement="province"
+            label="Provincia"
+            [options]="provincesOptions"
+          ></evt-select>
+
+          <evt-select
+            ngDefaultControl
+            formControlName="city"
+            idElement="city"
+            label="Ciudad"
+            [options]="citiesOptions"
+          ></evt-select>
+        </div>
+
+        <div class="grid--vertical">
+          <label class="grid__label"
+            >Seleccione los productos a contratar:</label
+          >
+          <ng-container
+            *ngFor="let product of productsOptions.controls; let idx = index"
+          >
+            <evt-checkbox
+              ngDefaultControl
+              [formControl]="getSingleProductControl(product, 'selected')"
+              idElement="names"
+              [label]="getSingleProductControl(product, 'label').value"
+            ></evt-checkbox>
+          </ng-container>
+        </div>
+
+        <div class="grid--vertical">
+          <label class="grid__label"
+            >Desea recibir información adicional a su correo electrónico?</label
+          >
+
+          <div class="grid__radio-button-container">
+            <evt-radio-button
+              [idElement]="'radioInformationNo'"
+              [value]="'No'"
+              [label]="'No'"
+              [name]="'information'"
+              ngDefaultControl
+              formControlName="information"
+              class="mr-32"
+            ></evt-radio-button>
+
+            <evt-radio-button
+              [idElement]="'radioInformationYes'"
+              [value]="'Sí'"
+              [label]="'Sí'"
+              [name]="'information'"
+              ngDefaultControl
+              formControlName="information"
+            ></evt-radio-button>
+          </div>
+        </div>
+
+        <evt-checkbox
+          ngDefaultControl
+          formControlName="terms"
+          idElement="terms"
+          label="¿Aceptas nuestros términos y condiciones?"
+        ></evt-checkbox>
+      </div>
+
+      <evt-form-feeback [type]="formStatus"></evt-form-feeback>
+
+      <div class="form__footer">
+        <evt-button
+          text="Reiniciar"
+          (onClick)="resetForm()"
+          color="secondary"
+          class="mr-32"
+          [disabled]="isResetButtonDisabled"
+        ></evt-button>
+        <evt-button
+          *ngIf="this.productsOptions.length > 0"
+          text="Enviar"
+          (onClick)="submitForm()"
+          [disabled]="isSubmitButtonDisabled"
+          color="primary"
+        ></evt-button>
+
+        <evt-button
+          *ngIf="this.productsOptions.length === 0"
+          text="Volver a pedir prodcutos"
+          (onClick)="getProducts()"
+          color="primary"
+        ></evt-button>
+      </div>
+    </form>
+  </main>
+</div>

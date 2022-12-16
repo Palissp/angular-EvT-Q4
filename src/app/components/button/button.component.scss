@@ -1,0 +1,41 @@
+button {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  padding: 1rem 1.5rem !important;
+  cursor: pointer;
+}
+
+.custom-button {
+  &--primary {
+    background-color: #ffdd00;
+    color: #0f265c;
+
+    &:active {
+      background-color: #ffdd00;
+    }
+
+    &:disabled {
+      background-color: #fff199;
+      color: #9fa8be;
+    }
+  }
+
+  &--secondary {
+    background-color: #e9ecf3;
+    color: #0f265c;
+
+    &:active {
+      background-color: #e9ecf3;
+    }
+
+    &:disabled {
+      background-color: #f4f6f9;
+      color: #9fa8be;
+    }
+  }
+}
