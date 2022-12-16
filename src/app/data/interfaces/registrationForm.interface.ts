@@ -1,11 +1,13 @@
+import {ProductosInterface} from "./productos.interface";
+
 export interface RegistrationFormInterface {
     name: string;
     lastName: string;
     email: string;
     phone: string;
-    province: string;
-    city: string;
-    products: boolean[];
-    authorization: boolean;
-    agree: boolean;
+    provincia: string;
+    ciudad: string;
+    productos: ProductosInterface[];
+    informacion: boolean;
+    agree?: boolean;
 }
