@@ -39,11 +39,9 @@
                 <label class="input__label" >
                     Provincia
                 </label>
-                <div class="relative">
+                <div class="relative" *ngIf="estadoProvincias.length>0">
                     <select class="input__selectInput" id="province">
-                        <option>New Mexico</option>
-                        <option>Missouri</option>
-                        <option>Texas</option>
+                        <option *ngFor="let item of estadoProvincias">{{item.provincia}}</option>
                     </select>
                     <div class="input__selectInput__arrow">
                         <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

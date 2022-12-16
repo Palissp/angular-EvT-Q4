@@ -54,7 +54,7 @@ describe('RegistrationService', () => {
             doneFn();
         })
 
-        const url = `${API_URL}/provincias`;
+        const url = `${API_URL}/estado/provincias`;
         const req = httpController.expectOne(url);
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);

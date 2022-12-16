@@ -12,7 +12,7 @@ import {RegistrationService} from "../../services/registration.service";
 })
 export class MainFormComponent implements OnInit {
     form: FormGroup;
-    estados: any=[];
+    estadoProvincias: any=[];
     agree = false;
     example: RegistrationFormInterface = {
         name: "John",
@@ -44,6 +44,7 @@ export class MainFormComponent implements OnInit {
     ngOnInit(): void {
         this.registrationService.getEstados().subscribe((data) => {
             console.log(data);
+            this.estadoProvincias = data;
         });
     }
 
