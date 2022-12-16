@@ -1,0 +1,18 @@
+ .buttonStyle {
+    border-radius: 4px;
+    padding: 12px 16px;
+    border: transparent;
+    height: 56px;
+
+    &__primary{
+        width: 87px;
+        background: #FFF199;
+        
+    }
+    &__secundary {
+        width: 100px;
+        background: #E9ECF3;
+        border: 1px solid #DEE3ED;
+    }
+
+ }

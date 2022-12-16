@@ -1,0 +1,52 @@
+.container {
+    background-color:#F3F6F9;
+    height: calc(100vh - 83px);
+    display: flex;
+    justify-content: center;
+    padding-top: 79px;
+    padding-bottom: 79px;
+    
+    &__formproduct {
+        width: 686px;
+        background-color: #FFFFFF;
+        height: fit-content;
+        
+        &-title {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 24px;
+            color: #000000;
+            text-align: center;
+        }
+        &-header {
+            height: 91px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        hr{
+           border:  2px solid rgba(44, 44, 48, 0.42);
+        }
+        &-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 24px;
+            padding: 16px 41px;
+        }
+        &-otions {
+            padding: 16px 41px;
+        }
+        &-question {
+            padding: 16px 41px;
+        }
+        &-terms {
+            padding: 16px 41px;
+        }
+        &-buttoms {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 32px;
+            padding-top: 32px;
+        }
+    }
+}

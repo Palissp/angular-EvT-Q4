@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+    <form class="container__formproduct"  [formGroup]="frmProduct" novalidate="novalidate">
+        <div class="container__formproduct-header">
+            <label class="container__formproduct-title w-100">Formulario de registro</label>
+        </div>
+        <hr>
+
+        <div class="container__formproduct-inputs">
+
+            <app-input [label]="'Nombres'" [form]="frmProduct" [control]="'firstname'"></app-input>
+            <app-input [label]="'Apellidos'" [form]="frmProduct" [control]="'lastname'" ></app-input>
+
+            <app-input [label]="'Correo Electrónico'" [form]="frmProduct" [control]="'email'"></app-input>
+            <app-input [label]="'Número de teléfono'" [form]="frmProduct" [control]="'phonenumber'"></app-input>
+
+            <app-select [label]="'Provincia'" [items]="provinces" [form]="frmProduct" [control]="'province'"></app-select>
+            <app-select [label]="'Ciudad'" [items]="cantons" [form]="frmProduct" [control]="'canton'" 
+            (onChangeEvent)="getCantons($event)" ></app-select>
+        </div>
+
+        <div class="container__formproduct-otions">
+           <label>Seleccione los productos a contratar: </label> <br>
+            <div *ngFor="let object of options">
+             <input type="checkbox" [checked]="object.checked"> {{object.name}}
+            </div>
+        </div>
+
+        <div class="container__formproduct-question">
+            <label>Desea recibir información adicional a su correo electrónico?</label>
+            <input name="options" ng-control="options" type="radio" [value]="1"   ><br/>
+
+        </div>
+
+        <div class="container__formproduct-terms">
+            ¿Aceptas nuestros términos y condiciones?
+        </div>
+
+        <div class="container__formproduct-buttoms">
+           <app-button [label]="'Reinicar'" class="m-63" [typeCss]="'secundary'" (onClickButton)="onClickButton($event)"></app-button>
+           <app-button [label]="'Enviar'" [typeCss]="'primary'" (onClickButton)="onClickButton($event)"></app-button>
+        </div>
+   
+    </form>
+
+</div>
