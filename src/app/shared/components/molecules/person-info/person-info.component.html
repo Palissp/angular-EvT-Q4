@@ -1,0 +1,66 @@
+<form [formGroup]="form">
+  <div class="container">
+    <div>
+      <span class="container--title">Formulario de registro</span>
+    </div>
+    <div class="container--split--bar"></div>
+    <div class="container--data-form">
+      <app-input class="player__data__item" label="Nombres"></app-input>
+      <app-input class="player__data__item" label="Apellidos"></app-input>
+    </div>
+    <div class="container--data-form">
+      <app-input
+        class="player__data__item"
+        label="Correo Electronico"
+      ></app-input>
+      <app-input
+        class="player__data__item"
+        label="Numero de telefono"
+      ></app-input>
+    </div>
+    <div class="container--data-form">
+      <app-input class="player__data__item" label="Provincia"></app-input>
+      <app-input class="player__data__item" label="Ciudad"></app-input>
+    </div>
+    <div class="container__data-select-product">
+      <span class="container__data--product"
+        >Seleccione los productos a contratar:</span
+      >
+      <label class="labelUser" *ngFor="let product of listProducts">
+        <input class="primaryInputForm" type="checkbox"
+        [id]="product.id"
+        [checked]="product.isSelected(product)"
+        [value]="product.description"
+        (change)="product.toggle(product)"
+       />
+       {{product.name}}
+      </label>
+    </div>
+    <div class="container__data-select-product">
+      <span class="container__data--product"
+        >Desea recibir información adicional a su correo:</span
+      >
+      <div class="container__data-email-info">
+        <label class="labelUser">
+          <input class="primaryInputForm" type="radio" />
+          no
+        </label>
+        <label class="labelUser">
+          <input class="primaryInputForm" type="radio"
+           />
+          si
+        </label>
+      </div>
+    </div>
+    <div class="container__data--condition">
+      <label class="container__data--terms">
+        <input class="primaryInputForm" type="checkbox" />
+        ¿Aceptas nuestros terminos y condiciones?
+      </label>
+    </div>
+    <div class="container__send--data">
+      <button class="container__send--reset-person">Reiniciar</button>
+      <button class="container__send--send-person">Enviar</button>
+    </div>
+  </div>
+</form>

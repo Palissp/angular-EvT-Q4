@@ -1,0 +1,104 @@
+.container {
+  position: absolute;
+  width: 686px;
+  height: 783px;
+  right: 377px;
+  top: 162px;
+  background: #ffffff;
+
+  .container--title {
+    position: absolute;
+    width: 332px;
+    height: 30px;
+    padding-top: 2rem;
+    left: calc(50% - 332px / 2);
+    font-family: "Prelo";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+  }
+
+  .container--split--bar {
+    border-bottom: 1.5px solid black;
+    padding-top: 5.3rem;
+  }
+
+  .container--data-form {
+    display: flex;
+  }
+
+  .container__data-select-product {
+    padding-left: 21px;
+
+    .container__data--product {
+      padding-bottom: 5px;
+      font-family: "Prelo";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container__data-email-info {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  .container__data--condition {
+    padding-top: 1rem;
+    padding-left: 21px;
+
+    .container__data--terms {
+      font-family: "Prelo";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .container__send--data {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 3rem;
+
+    .container__send--send-person {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 16px;
+      width: 87px;
+      height: 56px;
+      background: #fff199;
+      border-radius: 4px;
+    }
+
+    .container__send--reset-person {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      width: 100px;
+      height: 56px;
+      left: 217px;
+      top: 29px;
+      background: #f4f6f9;
+      border-radius: 4px;
+    }
+  }
+}
