@@ -1,0 +1,20 @@
+.select {
+    &__label {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    &__field {
+        width: 91%;
+    }
+
+    &__errors {
+        color: var(--error-color);
+        font-size: 0.7rem;
+    }
+}
+
+select {
+    margin-top: 8px;
+    height: 48px;
+}

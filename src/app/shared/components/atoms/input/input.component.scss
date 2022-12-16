@@ -1,0 +1,32 @@
+$color-error: #D50707;
+input {
+  border-radius: 4px;
+  border: 1px solid #2C2C30;
+  margin-top: 8px;
+  height: 48px;
+}
+
+.input {
+  &__label {
+      font-size: 14px;
+      font-weight: 700;
+  }
+
+  &__field {
+      width: 90%;
+  }
+
+  &__errors {
+      color: $color-error;
+      font-size: 12px;
+  }
+  &__borde-error {
+    border: 1px solid $color-error;
+  }
+}
+
+#error-description {
+  font-size: 12px;
+}
+
+
