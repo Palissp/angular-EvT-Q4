@@ -68,6 +68,15 @@
                 </div>
             </div>
         </div>
+        <div>
+
+            <ng-container *ngFor="let producto of productos">
+            <label><input type="checkbox"  value="producto.id"> {{producto.name}}</label><br>
+
+            </ng-container>
+
+
+        </div>
 
 
         <p class="bodyCard__text">

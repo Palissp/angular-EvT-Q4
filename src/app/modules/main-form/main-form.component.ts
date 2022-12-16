@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 
 import {Router} from "@angular/router";
 import {RegistrationService} from "../../services/registration.service";
+import {ProvinciaInterface} from "../../data/interfaces/provincias.interface";
+import {ProductosInterface} from "../../data/interfaces/productos.interface";
 
 @Component({
     selector: 'app-main-form',
@@ -12,7 +14,8 @@ import {RegistrationService} from "../../services/registration.service";
 })
 export class MainFormComponent implements OnInit {
     form: FormGroup;
-    estadoProvincias: any=[];
+    estadoProvincias: ProvinciaInterface[]=[];
+    productos: ProductosInterface[]=[];
     agree = false;
     example: RegistrationFormInterface = {
         name: "John",
@@ -45,6 +48,10 @@ export class MainFormComponent implements OnInit {
         this.registrationService.getEstados().subscribe((data) => {
             console.log(data);
             this.estadoProvincias = data;
+        });
+        this.registrationService.getProductos().subscribe((data) => {
+            console.log(data);
+            this.productos = data;
         });
     }
 
