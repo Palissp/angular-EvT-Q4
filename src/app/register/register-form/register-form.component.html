@@ -1,0 +1,107 @@
+<form class="register-form__body" [formGroup]="registerForm">
+  <div class="register-form__title">
+    <h2>Formulario de registro</h2>
+  </div>
+  <div class="register-form__edit-section">
+    <div class="register-form__row">
+      <div class="register-form__left-column">
+        <p class="register-form__label">
+          Nombres
+        </p>
+        <input formControlName="name" class="register-form__input">
+      </div>
+      <div class="register-form__right-column">
+        <p class="register-form__label">
+          Apellidos
+        </p>
+        <input formControlName="surname" class="register-form__input">
+      </div>
+    </div>
+    <div class="register-form__row">
+      <div class="register-form__left-column">
+        <p class="register-form__label">
+          Correo Electrónico
+        </p>
+        <input formControlName="email" class="register-form__input">
+      </div>
+      <div class="register-form__right-column">
+        <p class="register-form__label">
+          Número de teléfono
+        </p>
+        <input formControlName="telephone" class="register-form__input">
+      </div>
+    </div>
+    <div class="register-form__row">
+      <div class="register-form__left-column">
+        <p class="register-form__label">
+          Provincia
+        </p>
+        <select formControlName="province" (change)="onSelectProvince($event)" name="select-province" class="register-form__select">
+          <option *ngFor="let province of provinces" [ngValue]="province.codigo">{{province.provincia}}</option>
+        </select>
+      </div>
+      <div class="register-form__right-column">
+        <p class="register-form__label">
+          Ciudad
+        </p>
+        <select formControlName="city" name="select-city" class="register-form__select">
+          <option *ngFor="let city of cities" [ngValue]="city.id">{{city.canton}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="register-form__row">
+      <div>
+        <p class="register-form__label">
+          Seleccione los productos a contratar:
+        </p>
+        <div *ngIf="(products == undefined || products.length === 0) ">
+          <p>Algo salió mal al cargar los productos 😥</p>
+          <button class="register-form__button register-form__button--secondary" (click)="getProductList()">
+            Recargar
+          </button>
+        </div>
+
+        <div class="register-form__flex-container" *ngFor="let product of products">
+          <input #products (click)="setSelectedProducts($event)" type="checkbox" [value]="product.id" class="register-form__checkbox">
+          <p class="register-form__checkbox-label">
+            {{product.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="register-form__row">
+      <div>
+        <p class="register-form__label">
+          Desea recibir la información adicional a su correo electrónico
+        </p>
+        <div class="register-form__flex-container">
+          <input name="information" [value]="false" formControlName="information" type="radio" class="register-form__radio">
+          <p class="register-form__radio-label">No</p>
+          <input [value]="true" name="information" type="radio" formControlName="information" class="register-form__radio">
+          <p class="register-form__radio-label">Si</p>
+        </div>
+      </div>
+    </div>
+    <div class="register-form__row">
+      <div class="register-form__flex-container">
+        <input formControlName="terms" type="checkbox" class="register-form__checkbox">
+        <p class="register-form__checkbox-label">
+          ¿Aceptas términos y condiciones?
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="register-form__button-section">
+    <div class="pe-16">
+      <button (click)="restart()" class="register-form__button register-form__button--secondary">
+        Reiniciar
+      </button>
+    </div>
+    <div>
+      <button [disabled]="registerForm.invalid" (click)="postRegister()" class="register-form__button register-form__button--primary">
+        Enviar
+      </button>
+    </div>
+
+  </div>
+</form>
