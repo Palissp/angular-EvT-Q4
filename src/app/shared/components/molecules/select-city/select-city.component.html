@@ -1,0 +1,16 @@
+<div [formGroup]="form" class="select">
+  <label class="select__label">{{ label }}</label>
+  <select class="select__field" name="idCity" [formControlName]="control">
+    <option *ngFor="let option of list" [value]="option.id">
+      {{ option.canton }}
+    </option>
+  </select>
+  <label
+    class="error"
+    id="error-description"
+    *ngIf="form.controls[control].errors?.['required']  && 
+    (form.controls[control].dirty || form.controls[control].touched)"
+  >
+    Campo requerido
+  </label>
+</div>

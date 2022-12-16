@@ -1,0 +1,21 @@
+<div [formGroup]="form" class="select">
+  <label class="select__label">{{ label }}</label>
+  <select
+    class="select__field"
+    name="idProvince"
+    [formControlName]="control"
+    (change)="onChangeProvince($event)"
+  >
+    <option *ngFor="let option of list" [value]="option.codigo">
+      {{ option.provincia }}
+    </option>
+  </select>
+  <label
+    class="error"
+    id="error-description"
+    *ngIf="form.controls[control].errors?.['required']  && 
+    (form.controls[control].dirty || form.controls[control].touched)"
+  >
+  Este campo es requerido!
+  </label>
+</div>
