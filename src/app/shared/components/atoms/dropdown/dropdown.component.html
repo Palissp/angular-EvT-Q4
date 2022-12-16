@@ -1,0 +1,25 @@
+<div class="wrapper" class="error'">
+    <label>
+      <div *ngIf="this.label" class="label-wrapper">
+        <span class="label">{{ this.label }}</span>
+      </div>
+      <div class="input-wrapper">
+        <select 
+          [id]="id"
+          [name]="name"
+          [disabled]="disabled"
+          [(ngModel)]="selected"
+          (change)="this.onChange($event)"
+        >
+          <option value="">Seleccionar una opción</option>
+          <option *ngFor="let option of optionList" [value]="option.id" >{{option.name}}</option>
+        </select>
+      </div>
+    </label>
+    <div class="helper-wrapper" *ngIf="error">
+      <span class="helper-text" class="error">
+          Campo requerido
+      </span>
+    </div>
+  </div>
+  

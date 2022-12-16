@@ -1,0 +1,10 @@
+
+<div class="finish-form">
+    <img class="finish-form__image" [src]="isSuccess?successImageUrl:errorImageUrl" alt="img">
+    <div class="finish-form__leyend">
+        <img class="finish-form__icon" [src]="isSuccess?successIconUrl:errorIconUrl" alt="img">
+        <div class="finish-form__text">
+            {{isSuccess? successText: errorText}}
+        </div>
+    </div>
+</div>

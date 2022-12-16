@@ -1,0 +1,14 @@
+.form-header {
+  width: 100%;
+  height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-body {
+  background: #f3f6f9;
+  height: calc(100vh - 83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

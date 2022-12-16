@@ -1,0 +1,86 @@
+.radio-button-content {
+  font-family: prelo-book, Helvetica, Arial, Sans, Sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  color: var(--darkGrey500);
+  display: block;
+  position: relative;
+  padding-left: 32px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-top: 1px;
+}
+
+.radio-button-content input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-button-content[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+
+  input ~ .checkmark {
+    background-color: var(--darkGrey200);
+    border: 0px;
+  }
+}
+
+input:checked ~ .checkmark {
+  background-color: var(--blue500);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.radio-button-description {
+  font-family: prelo-book, Helvetica, Arial, Sans, Sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #2c2c30;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #6e6e73;
+  border-radius: 12px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
