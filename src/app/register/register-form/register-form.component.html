@@ -36,7 +36,9 @@
         <p class="register-form__label">
           Provincia
         </p>
-        <input class="register-form__input">
+        <select name="select" class="register-form__select">
+          <option *ngFor="let province of provinces" [value]="province.codigo">{{province.provincia}}</option>
+        </select>
       </div>
       <div class="register-form__right-column">
         <p class="register-form__label">
@@ -50,6 +52,13 @@
         <p class="register-form__label">
           Seleccione los productos a contratar:
         </p>
+        <div *ngIf="(products == undefined || products.length === 0) ">
+          <p>Algo salió mal al cargar los productos 😥</p>
+          <button class="register-form__button register-form__button--secondary" (click)="getProductList()">
+            Recargar
+          </button>
+        </div>
+
         <div class="register-form__flex-container" *ngFor="let product of products">
           <input type="checkbox" [value]="product.id" class="register-form__checkbox">
           <p class="register-form__checkbox-label">
@@ -73,11 +82,11 @@
     </div>
     <div class="register-form__row">
       <div class="register-form__flex-container">
-      <input type="checkbox" class="register-form__checkbox">
-      <p class="register-form__checkbox-label">
-        ¿Aceptas términos y condiciones?
-      </p>
-    </div>
+        <input type="checkbox" class="register-form__checkbox">
+        <p class="register-form__checkbox-label">
+          ¿Aceptas términos y condiciones?
+        </p>
+      </div>
     </div>
   </div>
   <div class="register-form__button-section">
