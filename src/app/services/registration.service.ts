@@ -37,6 +37,6 @@ export class RegistrationService {
     }
     public postRegistro(registrationFormObject:RegistrationFormInterface): Observable<RegistrationFormInterface> {
         const body = JSON.stringify(registrationFormObject);
-        return this.httpClient.post<RegistrationFormInterface>(this.URL,body, this.httpOptions).pipe(catchError(handleError));
+        return this.httpClient.post<RegistrationFormInterface>(this.URL+'/registro',body, this.httpOptions).pipe(catchError(handleError));
     }
 }
