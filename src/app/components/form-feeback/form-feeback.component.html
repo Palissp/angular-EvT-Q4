@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div class="feedback-container" *ngIf="type !== 'filling'">
+    <img
+      [src]="'assets/' + [type] + '-img.png'"
+      [alt]="type === 'success' ? 'success-img' : 'error-img'"
+      width="500"
+    />
+
+    <div class="feedback-container__message">
+      <img
+        [src]="'assets/' + [type] + '-logo.png'"
+        [alt]="type === 'success' ? 'success-logo' : 'error-logo'"
+        width="50"
+        height="50"
+      />
+      <p>
+        <ng-container *ngIf="type === 'succees'"
+          >Formulario enviado exitosamente</ng-container
+        >
+        <ng-container *ngIf="type === 'error'"
+          >Ocurrio un error con el formulario intente nuevamente</ng-container
+        >
+      </p>
+    </div>
+  </div>
+</div>
