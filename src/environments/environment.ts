@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+   api: 'https://api-q4.onrender.com',
   production: false
 };
 
