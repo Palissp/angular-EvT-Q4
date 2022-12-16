@@ -6,11 +6,14 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ProductService} from "../../core/services/product-service/product.service";
 import {PRODUCTSMOCK} from "../../core/mocks/product.mock";
 import {of} from "rxjs";
+import {LocationService} from "../../core/services/product-service/location.service";
+import {PROVINCESMOCK} from "../../core/mocks/province.mock";
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
   let fixture: ComponentFixture<RegisterFormComponent>;
   let productService: ProductService;
+  let locationService: LocationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,7 +24,8 @@ describe('RegisterFormComponent', () => {
         HttpClientTestingModule
       ],
       providers: [
-        ProductService
+        ProductService,
+        LocationService
       ]
     })
       .compileComponents();
@@ -29,6 +33,11 @@ describe('RegisterFormComponent', () => {
   beforeEach(() => {
     productService = TestBed.inject(ProductService);
     jest.spyOn(productService, 'getProducts').mockReturnValue(of(PRODUCTSMOCK));
+  })
+
+  beforeEach(() => {
+    locationService = TestBed.inject(LocationService);
+    jest.spyOn(locationService, 'getProvinces').mockReturnValue(of(PROVINCESMOCK));
   })
 
   beforeEach(() => {
@@ -46,5 +55,11 @@ describe('RegisterFormComponent', () => {
     component.ngOnInit()
     expect(productService.getProducts).toHaveBeenCalled();
     expect(component.products).toStrictEqual(PRODUCTSMOCK);
+  });
+
+  it('fill list of provinces', () => {
+    component.ngOnInit()
+    expect(locationService.getProvinces).toHaveBeenCalled();
+    expect(component.provinces).toStrictEqual(PROVINCESMOCK);
   });
 });
