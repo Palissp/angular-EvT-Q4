@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="content">
+    <div class="content-form">
+        <app-typography type="h2" color="black" text="Formulario de registro"></app-typography>
+        <div class="line"></div>
+        <form [formGroup]="form">
+            <div class="grid">
+                <div class="grid-12 grid-xs-6">
+                    <app-input ngDefaultControl [errorHelper]="labels.required" formControlName="name"
+                        [fullWidth]="true" idElement="name" label="Nombres:" showTooltipOnChange="true" state="normal"
+                        tooltip="textForm.seedCapital.tooltip" type="textForm.type"></app-input>
+                </div>
+                <div class="grid-12 grid-xs-6">
+                    <app-input ngDefaultControl [errorHelper]="labels.required" formControlName="surname"
+                        [fullWidth]="true" idElement="surname" label="Apellidos" showTooltipOnChange="true"
+                        state="normal" tooltip="textForm.seedCapital.tooltip" type="textForm.type"></app-input>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-12 grid-xs-6">
+                    <app-input ngDefaultControl [errorHelper]="labels.required" formControlName="email"
+                        [fullWidth]="true" idElement="email" label="Correo Electrónico" showTooltipOnChange="true"
+                        state="normal" tooltip="textForm.seedCapital.tooltip" type="textForm.type"></app-input>
+                </div>
+                <div class="grid-12 grid-xs-6">
+                    <app-input ngDefaultControl [errorHelper]="labels.required" formControlName="phone"
+                        [fullWidth]="true" idElement="phone" label="Número de teléfono" showTooltipOnChange="true"
+                        state="normal" tooltip="textForm.seedCapital.tooltip" type="textForm.type"></app-input>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-12 grid-xs-6">
+                    <app-select label="Provincia" formControlName="idState" [required]="true" [data]="stateList">
+                    </app-select>
+                </div>
+                <div class="grid-12 grid-xs-6">
+                    <app-select label="Ciudad" formControlName="idCity" [required]="true" [data]="cityList">
+                    </app-select>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-12 grid-xs-12">
+                    <app-typography align="left" type="h5"
+                        text="Seleccione los productos a contratar:"></app-typography>
+                </div>
+                <div class="grid-12 grid-xs-12">
+                    <div class="form" *ngFor="let item of items">
+                        <div class="form-group">
+                            <input formControlName="tarjeta-de-credito" type="checkbox" [id]="item.id">
+                            <label for="html">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-12 grid-xs-12">
+                    <app-typography align="left" type="h5"
+                        text="Desea recibir información adicional a su correo electrónico?"></app-typography>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-12 grid-xs-12">
+                    <div class="form-group">
+                        <input formControlName="terms" type="checkbox" id="terms">
+                        <label for="html">¿Aceptas nuestros términos y condiciones?</label>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="grid">
+                <div class="grid-12 grid-xs-6">
+                    <app-button (handleClick)="cancel()" type="secondary" title="Reiniciar"
+                        data-test="btn-cancel"></app-button>
+
+                </div>
+                <div class="grid-12 grid-xs-6">
+                    <app-button (handleClick)="submit()" [disabled]="!form.valid" title="Guardar"
+                        type="primary"></app-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<ng-template #success>
+    <app-header></app-header>
+    <div class="content">
+        <div class="content-form">
+            <img src="../../../../../assets/success-img.png" alt="">
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #error>
+    <app-header></app-header>
+    <div class="content">
+        <div class="content-form">
+            <img src="../../../../../assets/error-img.png" alt="">
+
+        </div>
+    </div>
+</ng-template>

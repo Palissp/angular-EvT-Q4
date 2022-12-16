@@ -1,0 +1,24 @@
+<container-element [ngSwitch]="type">
+    <div *ngSwitchCase="'h1'" class="content content--{{align}}">
+        <h1 class="{{color}}">{{text}}</h1>
+    </div>
+    <div *ngSwitchCase="'h2'" class="content content--{{align}}">
+        <h2 class="{{color}}">{{text}}</h2>
+    </div>
+    <div *ngSwitchCase="'h3'" class="content content--{{align}}">
+        <h3 class="{{color}}">{{text}}</h3>
+    </div>
+    <div *ngSwitchCase="'h4'" class="content content--{{align}}">
+        <h4 class="{{color}}">{{text}}</h4>
+    </div>
+    <div *ngSwitchCase="'h5'" class="content content--{{align}}">
+        <h5 class="{{color}}">{{text}}</h5>
+    </div>
+    <div *ngSwitchCase="'h6'" class="content content--{{align}}">
+        <h6 class="{{color}}">{{text}}</h6>
+    </div>
+    <div *ngSwitchDefault>
+        <p class="{{color}}">{{text}}</p>
+    </div>
+ </container-element>
+

@@ -1,0 +1,32 @@
+@import '../../../shared/style/variables';
+h1,h2,h3,h4{
+    font-family: Prelo;
+}
+.content {
+  display: flex;
+  &--center {
+    justify-content: center;
+  }
+  &--right {
+    justify-content: right;
+  }
+  &--left {
+    justify-content: left;
+  }
+}
+
+.red {
+  color: $error;
+}
+
+.green {
+  color: $success900;
+}
+
+.black {
+  color: $black;
+}
+
+.grey {
+  color: $darkGrey200;
+}

@@ -1,0 +1,50 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+// col
+@for $i from 1 through 12 {
+    .grid-#{$i}{
+        grid-column: span $i;
+        // border: 1px solid green;
+    }
+}
+
+@media (min-width: 768px) {
+    @for $i from 1 through 12 {
+        .grid-md-#{$i}{
+            grid-column: span $i;
+            // border: 1px solid green;
+        }
+    }
+}
+
+//extra small (xs)
+@media (min-width: 576px) {
+    @for $i from 1 through 12 {
+        .grid-xs-#{$i}{
+            grid-column: span $i;
+        }
+    }
+}
+
+// Large (lg)
+@media (min-width: 992px) {
+    @for $i from 1 through 12 {
+        .grid-lg-#{$i} {
+            grid-column: span ($i);
+        }
+    }
+}
+
+// Extra large (xl)
+@media (min-width: 1200px) {
+    @for $i from 1 through 12 {
+        .grid-xl-#{$i} {
+            grid-column: span ($i);
+        }
+    }
+}

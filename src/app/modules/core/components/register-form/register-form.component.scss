@@ -1,0 +1,63 @@
+@import "../../../../shared/style/variables";
+@import "../../../../shared/style/grid";
+@import "../../../../shared/style/buttons";
+
+.content {
+  display: flex;
+  justify-content: center;
+  background-color: $background;
+  &-form {
+    background: $white;
+    margin-top: 80px;
+    background-clip: border-box;
+    color: #111e27;
+    top: 50%;
+    left: 50%;
+    padding: 25px;
+    width: 550px;
+    z-index: 100;
+  }
+}
+
+.line {
+  height: 2px;
+  background: linear-gradient(to bottom, $darkGrey 3px, $darkGrey 3px);
+}
+
+b {
+  background-color: $white;
+  color: #111e27;
+}
+
+input {
+  background-color: $white;
+  border: auto;
+  border-radius: 10px;
+  color: #111e27;
+  padding: 6px 12px;
+  height: 35px;
+}
+
+textarea {
+  background-color: $white;
+  border: auto;
+  border-radius: 10px;
+  color: #111e27;
+  width: 450px;
+  max-width: 450px;
+  max-height: 120px;
+}
+
+button {
+  border-color: $white;
+  border: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

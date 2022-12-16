@@ -1,0 +1,6 @@
+<label>{{label}}</label>
+<select name="form" id="form" [(ngModel)]="field" (ngModelChange)="onChangeFn($event)" (blur)="onTouchedFn()"
+    [disabled]="isDisabled" [required]="required">
+    <option value="" hidden disabled>{{placeholder}}</option>
+    <option *ngFor="let item of data" [value]="item.value">{{item.label}}</option>
+</select>

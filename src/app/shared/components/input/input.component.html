@@ -1,0 +1,42 @@
+<div class="wrapper {{ state }}" [ngClass]="{ fullWidth: fullWidth, error: hasErrors }">
+    <label [for]="id">
+        <div class="input__label">
+            <app-typography *ngIf="label !== ''" type="h5" [color]="'black'" [text]="label">
+            </app-typography>
+        </div>
+
+        <div class="input-container">
+
+            <input [id]="id" [type]="type" [placeholder]="placeholder" [pattern]="pattern" [attr.maxlength]="maxLength"
+                [autocomplete]="autocomplete" [autofocus]="autofocus" class="{{ size }} {{ styleClass }}" [ngClass]="{
+            withLeading: currencyField,
+            withTrailing: percentageField
+          }" [formControl]="formControl" [attr.disabled]="showSearchButton || state === 'disabled' ? true : null"
+                (keypress)="handleEvent($event)" />
+
+            <app-button *ngIf="showSearchButton" [type]="'primary'" (click)="handleClick()">
+            </app-button>
+        </div>
+    </label>
+
+    <div class="wrapper--helper">
+        <ng-container *ngIf="errorHelper || normalHelper">
+            <div class="item" [ngClass]="maxLength ? 'left' : ''">
+                <ng-container *ngIf="hasErrors && errorHelper">
+                    <app-typography type="h6" [color]="'red'" [text]="errorHelper" align="left"></app-typography>
+                </ng-container>
+
+                <ng-container *ngIf="!hasErrors && normalHelper">
+                    <app-typography type="h6" [color]="'grey'" [text]="normalHelper" align="left">
+                    </app-typography>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="showMaxLength && maxLength">
+                <div class="item right">
+                    <app-typography type="h6" [color]="'red'" [text]="maxValue">
+                    </app-typography>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
