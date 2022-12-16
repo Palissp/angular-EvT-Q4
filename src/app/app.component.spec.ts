@@ -1,17 +1,33 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {RegistroService} from "./services/registro.service";
+import {CatalogoService} from "./services/catalogo.service";
+import {ProvinciaService} from "./services/provincia.service";
+import {HttpClientModule} from "@angular/common/http";
 
 describe('AppComponent', () => {
+  let catalogoService: CatalogoService;
+  let provinciaService: ProvinciaService;
+  let registroService: RegistroService;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
       declarations: [
         AppComponent
       ],
+      providers: [RegistroService, CatalogoService, ProvinciaService]
     }).compileComponents();
+  });
+
+  beforeEach(() => {
+    registroService = TestBed.inject(RegistroService);
+    catalogoService = TestBed.inject(CatalogoService);
+    provinciaService = TestBed.inject(ProvinciaService)
   });
 
   it('should create the app', () => {
@@ -24,12 +40,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('jest-angular');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('jest-angular app is running!');
   });
 });

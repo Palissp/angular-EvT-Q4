@@ -1,0 +1,103 @@
+<div class="content">
+  <div class="content--form">
+    <div class="content--form--header">
+      <p class="content--form--header__title">Formulario de registro</p>
+    </div>
+    <hr class="content--form--hr">
+    <form *ngIf="!error && !send" [formGroup]="registroForm">
+      <div class="content--form--body">
+        <div class="content--form--body__info">
+          <div class="content--form--header--body__item">
+            <p>Nombres</p>
+            <input formControlName="nombre" minlength="4" maxlength="40">
+            <br>
+            <span *ngIf="!validName">Este campo es requerido!</span>
+          </div>
+          <div class="content--form--header--body__item">
+            <div>
+              <p>Apellidos</p>
+              <input formControlName="apellido" minlength="4" maxlength="40">
+              <br>
+              <span *ngIf="!validLstaName">Este campo es requerido!</span>
+            </div>
+          </div>
+        </div>
+        <div class="content--form--body__info">
+          <div class="content--form--header--body__item">
+            <p>Correo Electrónico</p>
+            <input formControlName="correo" type="email">
+            <br>
+            <span>Este campo es requerido!</span>
+          </div>
+          <div class="content--form--header--body__item">
+            <div>
+              <p>Número de teléfono</p>
+              <input formControlName="numero" minlength="10">
+              <br>
+              <span>Este campo es requerido!</span>
+            </div>
+          </div>
+        </div>
+        <div class="content--form--body__info">
+          <div class="content--form--header--body__item">
+            <p>Provincia</p>
+            <select formControlName="provincia" (change)="onChangeProvincia()">
+              <option *ngFor="let provincia of provincias" [ngValue]="provincia.codigo">{{provincia.provincia}}</option>
+            </select>
+            <br>
+            <span>Este campo es requerido!</span>
+          </div>
+          <div class="content--form--header--body__item">
+            <div>
+              <p>Ciudad</p>
+              <select formControlName="ciudad">
+                <option *ngFor="let canton of cantones" [ngValue]="canton.id">{{canton.canton}}</option>
+              </select>
+              <br>
+              <span>Este campo es requerido!</span>
+            </div>
+          </div>
+        </div>
+        <div class="content--form--body__products">
+          <p>Seleccione los productos a contratar:</p>
+          <div *ngFor="let catalogo of catalogos">
+            <input type="checkbox" id="{{catalogo.id}}" name="{{catalogo.id}}" (change)="onChangeCatalogo($event, catalogo.id)">
+            <label for="scales">{{catalogo.name}}</label>
+          </div>
+        </div>
+        <div class="content--form--body__mail">
+          <p>Desea recibir información adicional a su correo electrónico?</p>
+          <div>
+            <input type="radio" id="si" name="scales" (change)="onChangeInformacion(false)">
+            <label for="scales">No</label>
+          </div>
+          <div>
+            <input type="radio" id="no" name="scales" (change)="onChangeInformacion(true)">
+            <label for="scales">Si</label>
+          </div>
+        </div>
+        <div class="content--form--body__conditions">
+          <input type="checkbox" id="scales" name="scales" (change)="onChangeTerminos($event)">
+          <label for="scales">¿Aceptas nuestros términos y condiciones?</label>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="error" class="content--form--error">
+      <img class="img" src="assets/error-img.png" alt="">
+      <div class="message">
+        <img class="img" src="assets/error-logo.png" alt="">{{mensajeError}}
+      </div>
+    </div>
+    <div *ngIf="send" class="content--form--error">
+      <img class="img" src="assets/success-img.png" alt="">
+      <br>
+      <div class="message">
+        <img class="img" src="assets/success-logo.png" alt="">{{mensajeCorrecto}}
+      </div>
+    </div>
+    <div class="content--form--buttons">
+      <button (click)="ngOnInit()" class="retry">Reiniciar</button>
+      <button (click)="onClickEnviar()" [disabled]="error" class="send-{{error}}">Enviar</button>
+    </div>
+  </div>
+</div>
