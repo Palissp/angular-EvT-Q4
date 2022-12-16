@@ -1,0 +1,4 @@
+<label>{{label}}</label>
+<input [type]="type" [(ngModel)]="field" (ngModelChange)="onChangeFn($event)" (blur)="onTouchedFn()"
+    [disabled]="isDisabled" [placeholder]="placeholder" [required]="required" [minlength]="minlength"
+    [maxlength]="maxlength" />

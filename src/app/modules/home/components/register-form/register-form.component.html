@@ -1,0 +1,105 @@
+<div class="container">
+    <form [formGroup]="formCustomer" class="form-group">
+        <div class="grid">
+            <div class="grid-12 grid-xs-6">
+                <app-input label="Nombres:" placeholder="Nombres" formControlName="name" [required]="true">
+                </app-input>
+                <span *ngIf="(name?.dirty || name?.touched) && name?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+            <div class="grid-12 grid-xs-6">
+                <app-input label="Apellido:" placeholder="Apellido" formControlName="lastname" [required]="true">
+                </app-input>
+                <span *ngIf="(lastname?.dirty || lastname?.touched) && lastname?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-12 grid-xs-6">
+                <app-input label="Correo Electrónico:" placeholder="Correo Electrónico" formControlName="email"
+                    [required]="true">
+                </app-input>
+                <span *ngIf="(email?.dirty || email?.touched) && email?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+            <div class="grid-12 grid-xs-6">
+                <app-input label="Número de Teléfono:" placeholder="Número de Teléfono" formControlName="phone"
+                    [required]="true">
+                </app-input>
+                <span *ngIf="(phone?.dirty || phone?.touched) && phone?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+        </div>
+
+
+        <div class="grid">
+            <div class="grid-12 grid-xs-6">
+                <app-select label="Provincia:" placeholder="Provincia" formControlName="provincia" [required]="true"
+                    [data]="provinceList" (ngModelChange)="selectProvince($event)">
+                </app-select>
+                <span *ngIf="(provincia?.dirty || provincia?.touched) && provincia?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+            <div class="grid-12 grid-xs-6">
+                <app-select label="Ciudad:" placeholder="Ciudad" formControlName="ciudad" [required]="true"
+                    [data]="cantonList">
+                </app-select>
+                <span *ngIf="(ciudad?.dirty || ciudad?.touched) && ciudad?.errors?.['required']" class="error">
+                    * Field required
+                </span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-12">
+                <label>Seleccione los productos a contratar</label>
+                <br>
+                <div *ngFor="let product of productList;">
+                    <input type="checkbox" [id]="product.id" [name]="product.id" [value]="product.id"
+                        (input)="selectProduct($event)">
+                    <label> {{product.name}} </label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-12">
+                <label>Desea recibir información adicional a su correo electrónico?</label>
+                <br>
+                <div class="radio-content">
+                    <div>
+                        <input type="radio" id="option1" name="option1" value="no"
+                            (input)="sendNotification($event, 'no')" [checked]="checkSelected[0]">
+                        <label> NO </label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="option2" name="option2" value="si"
+                            (input)="sendNotification($event, 'si')" [checked]="checkSelected[1]">
+                        <label> SI</label><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-12">
+                <input type="checkbox" id="option1" name="option1" value="option1" (input)="aceptConditions($event)">
+                <label> ¿Aceptas nuestros términos y condiciones? </label><br>
+            </div>
+        </div>
+
+        <br />
+        <div class="btn-container">
+            <button (click)="resetForm()" class="btn btn-secondary">Reiniciar</button>
+            <button (click)="validateForm()" class="btn btn-primary">Enviar</button>
+        </div>
+        <button (click)="loadApiData()">Load Data</button>
+        <br>
+    </form>
+</div>
