@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: ($unit * 2);
+  padding: $unit 0;
+}
+
+@for $i from 1 through $grid-columns {
+  .grid-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+@media (min-width: $xs) {
+  @for $i from 1 through $grid-columns {
+    .grid-xs-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  @for $i from 1 through $grid-columns {
+    .grid-md-#{$i} {
+      grid-row: span $i;
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  @for $i from 1 through $grid-columns {
+    .grid-lg-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  @for $i from 1 through $grid-columns {
+    .grid-xl-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}

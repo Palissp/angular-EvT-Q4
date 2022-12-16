@@ -1,0 +1,18 @@
+<ng-container *ngIf="label">
+  <app-typography [variant]="'bodyText'" color="black">{{
+    label
+  }}</app-typography>
+</ng-container>
+
+<div class="space-mt-12">
+  <ng-container *ngFor="let item of data; let i = index">
+    <input
+      type="checkbox"
+      id="{{ name }}_{{ i }}"
+      name="{{ name }}_{{ i }}"
+      [value]="item.value"
+    />
+    <label for="{{ name }}_{{ i }}"> {{ item.label }}</label
+    ><br />
+  </ng-container>
+</div>

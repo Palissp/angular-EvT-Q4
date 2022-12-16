@@ -1,0 +1,20 @@
+<button
+  class="button button--{{ color }} button--{{ size }}"
+  [ngClass]="fullWidth ? 'fullWidth' : 'withoutWith'"
+  [id]="idElement"
+  [disabled]="disabled"
+  [type]="type"
+  (click)="handleClick()"
+>
+  <app-typography
+    variant="smallText"
+    color="white"
+    weight="bold"
+    weight_color="500"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </app-typography>
+</button>
+<ng-template #text>
+  <ng-content></ng-content>
+</ng-template>

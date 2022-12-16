@@ -1,0 +1,17 @@
+@import "../../../../../assets/scss/colors";
+
+.home {
+  margin-bottom: 80px;
+  &__content {
+    background-color: $white;
+    width: 686px;
+    margin: 0 auto;
+    margin-top: 79px;
+  }
+}
+
+.content {
+  &--title {
+    border-bottom: 2px solid $color-primary;
+  }
+}

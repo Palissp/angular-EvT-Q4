@@ -1,0 +1,12 @@
+<app-typography [variant]="'bodyText'" color="black">{{
+  label
+}}</app-typography>
+
+<div class="radio space-mt-12">
+  <div *ngFor="let item of data; let i = index">
+    <input type="radio" [id]="item.value" [name]="name" [value]="item.value" />
+    <label class="space-ml-8" [for]="item.value">
+      {{ item.label }} </label
+    ><br />
+  </div>
+</div>
