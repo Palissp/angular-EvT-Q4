@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-left: 10rem;
+
+  .container--logo {
+    width: 202px;
+    height: 44;
+  }
+}
