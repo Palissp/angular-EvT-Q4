@@ -8,12 +8,13 @@ import { IRegister } from '../interfaces/register.interface';
 })
 export class RegisterService {
   private url: string;
+  REGISTRO ='registro';
 
   constructor(private _httpClient: HttpClient) {
     this.url = environment.url;
   }
 
   async createRegister(registerInfo: IRegister){
-
+    this._httpClient.post(`${this.url}/${this.REGISTRO}`,registerInfo);
   }
 }

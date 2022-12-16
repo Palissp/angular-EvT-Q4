@@ -1,4 +1,4 @@
-<label>{{label}}</label>
+<app-typography [text]="label" align="left" type="h5"></app-typography>
 <select name="form" id="form" [(ngModel)]="field" (ngModelChange)="onChangeFn($event)" (blur)="onTouchedFn()"
     [disabled]="isDisabled" [required]="required">
     <option value="" hidden disabled>{{placeholder}}</option>

@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ERROR } from '../../constants/error.type';
 import { ISelectItem } from '../../interfaces/select.interface';
 import { ProductService } from '../../services/product.service';
@@ -16,11 +21,11 @@ export class RegisterFormComponent implements OnInit {
   labels = ERROR;
   form: FormGroup;
   disabled: boolean = true;
-  stateList:ISelectItem[] = [];
+  stateList: ISelectItem[] = [];
   list: any = [];
-  items: any =[];
-  cityList: ISelectItem[]=[];
-  
+  items: any = [];
+  cityList: ISelectItem[] = [];
+  showInterface: boolean = true;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -45,27 +50,44 @@ export class RegisterFormComponent implements OnInit {
       id: null,
       name: [null, Validators.required],
       surname: [null, Validators.required],
-      email: [null, [Validators.required,Validators.email]],
+      email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required, Validators.maxLength(10)]],
-      idCity: ['',Validators.required],
-      idState: ['',Validators.required],
+      idCity: ['', Validators.required],
+      idState: ['', Validators.required],
       terms: [null, Validators.required],
-      'tarjeta-de-credito':[''],
+      'tarjeta-de-credito': [''],
     });
   }
 
-  get name() {return this.form.get('name') as FormControl;}
-  get surnames() {return this.form.get('surnames') as FormControl;}
-  get phone() {return this.form.get('phone') as FormControl;}
-  get email() {return this.form.get('email') as FormControl;}
-
+  get name() {
+    return this.form.get('name') as FormControl;
+  }
+  get surnames() {
+    return this.form.get('surnames') as FormControl;
+  }
+  get phone() {
+    return this.form.get('phone') as FormControl;
+  }
+  get email() {
+    return this.form.get('email') as FormControl;
+  }
+  get city() {
+    return this.form.get('idCity') as FormControl;
+  }
+  get state() {
+    return this.form.get('idState') as FormControl;
+  }
 
   async getState() {
     (await this._stateService.getState()).subscribe(
       (res) => {
         this.list = res;
         this.list.forEach((element: any) => {
-          let data = {value:element.codigo, label:element.provincia, selected:false }; 
+          let data = {
+            value: element.codigo,
+            label: element.provincia,
+            selected: false,
+          };
           this.stateList.push(data);
         });
       },
@@ -75,26 +97,36 @@ export class RegisterFormComponent implements OnInit {
     );
   }
 
-  async getCity(){
-    await (await this._stateService.getStateById('BOL')).subscribe((res)=>{
-      this.list = res;
+  async getCity() {
+    await (
+      await this._stateService.getStateById('BOL')
+    ).subscribe(
+      (res) => {
+        this.list = res;
         this.list.forEach((element: any) => {
-          let data = {value:element.id, label:element.canton, selected:false };
+          let data = {
+            value: element.id,
+            label: element.canton,
+            selected: false,
+          };
           this.cityList.push(data);
         });
-      console.log(res);
-    }, (error)=>{
-      console.log(error);
-    })
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  async getProducts(){
+  async getProducts() {
     (await this._productService.getProducts()).subscribe(
       (res) => {
         this.items = res;
         console.log(res);
       },
       (error) => {
+        this.showInterface = false;
         console.log(error);
       }
     );
@@ -108,6 +140,10 @@ export class RegisterFormComponent implements OnInit {
   }
 
   async cancel() {
-    
+    this.resetForm();
+  }
+
+  resetForm(){
+    this.form.reset();
   }
 }

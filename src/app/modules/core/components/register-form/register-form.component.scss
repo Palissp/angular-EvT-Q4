@@ -56,8 +56,18 @@ button {
   height: 35px;
 }
 
-.form-group{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    width: 44px;
+    height: 41px;
+  }
+  &-image {
+    img {
+      height: 240px;
+      width: 240px;
+    }
+  }
 }

@@ -1,11 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ISelectItem } from 'src/app/modules/core/interfaces/select.interface';
 
+const CONTROL_VALUE_ACCESSOR = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => SelectComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss']
+  styleUrls: ['./select.component.scss'],
+  providers: [CONTROL_VALUE_ACCESSOR]
 })
 export class SelectComponent implements OnInit {
 
