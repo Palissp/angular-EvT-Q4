@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-success-advice',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessAdviceComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router,) { }
 
   ngOnInit(): void {
   }
-
+  retry() {
+    this.router.navigate(['']);
+  }
 }
