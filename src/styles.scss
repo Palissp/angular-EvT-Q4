@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f3f6f9;
+}
+
+input.is-invalid {
+  border-color: #f46a6a !important;
+}
+
+.is-select-invalid {
+  border: 1px solid #f46a6a !important;
+}
+
+.invalid-feedback {
+  color: #f46a6a !important;
+}

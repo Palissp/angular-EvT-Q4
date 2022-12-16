@@ -1,0 +1,57 @@
+select {
+  height: 30px;
+  width: 175px;
+}
+
+.register-form {
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
+    row-gap: 15px;
+
+    .row-input {
+      input {
+        height: 25px;
+      }
+    }
+  }
+
+  &__products {
+    padding-top: 15px;
+  }
+
+  &__information {
+    padding-top: 15px;
+  }
+
+  &__confirmation {
+    padding-top: 15px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+  }
+}
+
+.alert {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.alert-success,
+.alert-error {
+  &__image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+  }
+
+  &__message {
+    display: flex;
+    justify-content: center;
+  }
+}

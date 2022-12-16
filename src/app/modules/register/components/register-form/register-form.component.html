@@ -1,0 +1,179 @@
+<div class="register-form" *ngIf="!showImage">
+  <form [formGroup]="registerForm" novalidate autocomplete="off">
+    <div class="register-form__inputs">
+      <div class="row-input">
+        <label for="">Nombres</label>
+        <input
+          type="text"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': isSend && registerForm.controls['name'].errors
+          }"
+        />
+        <div *ngIf="isSend && registerForm.controls['name'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['name'].errors['required']">Este campo es obligatorio</div>
+          <div *ngIf="registerForm.controls['name'].errors['minlength']">Este campo debe tener al menos 4 caracteres</div>
+          <div *ngIf="registerForm.controls['name'].errors['maxlength']">Este campo debe tener máximo 40 caracteres</div>
+        </div>
+      </div>
+
+      <div class="row-input">
+        <label for="">Apellidos</label>
+        <input
+          type="text"
+          formControlName="lastname"
+          [ngClass]="{
+            'is-invalid': isSend && registerForm.controls['lastname'].errors
+          }"
+        />
+        <div *ngIf="isSend && registerForm.controls['lastname'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['lastname'].errors['required']">Este campo es obligatorio</div>
+          <div *ngIf="registerForm.controls['lastname'].errors['minlength']">Este campo debe tener al menos 4 caracteres</div>
+          <div *ngIf="registerForm.controls['lastname'].errors['maxlength']">Este campo debe tener máximo 40 caracteres</div>
+        </div>
+      </div>
+
+      <div class="row-input">
+        <label for="">Correo electrónico</label>
+        <input
+          type="text"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid': isSend && registerForm.controls['email'].errors
+          }"
+        />
+        <div *ngIf="isSend && registerForm.controls['email'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['email'].errors['required']">Este campo es obligatorio</div>
+          <div *ngIf="registerForm.controls['email'].errors['email']">Este campo debe ser un correo válido</div>
+        </div>
+      </div>
+
+      <div class="row-input">
+        <label for="">Número de telefono</label>
+        <input
+          type="text"
+          formControlName="phone"
+          [ngClass]="{
+            'is-invalid': isSend && registerForm.controls['phone'].errors
+          }"
+        />
+        <div *ngIf="isSend && registerForm.controls['phone'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['phone'].errors['required']">Este campo es obligatorio</div>
+        </div>
+      </div>
+
+      <div class="row-select">
+        <label for="">Provincia</label>
+        <select
+          formControlName="provincia"
+          (ngModelChange)="getStates($event)"
+          [ngClass]="{
+            'is-select-invalid':
+              isSend && registerForm.controls['provincia'].errors
+          }"
+        >
+          <option
+            *ngFor="let province of provinces"
+            [value]="[province?.provincia, province?.codigo]"
+          >
+            {{ province?.provincia }}
+          </option>
+        </select>
+        <div *ngIf="isSend && registerForm.controls['provincia'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['provincia'].errors['required']">Este campo es obligatorio</div>
+        </div>
+      </div>
+
+      <div class="row-select">
+        <label for="">Ciudad</label>
+        <select
+          formControlName="ciudad"
+          [ngClass]="{
+            'is-select-invalid':
+              isSend && registerForm.controls['provincia'].errors
+          }"
+        >
+          <option *ngFor="let state of states" [value]="state?.canton">
+            {{ state?.canton }}
+          </option>
+        </select>
+        <div *ngIf="isSend && registerForm.controls['ciudad'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['ciudad'].errors['required']">Este campo es obligatorio</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="register-form__products">
+      <label>Seleccione los productos a contratar:</label>
+      <div *ngFor="let product of products; let i = index">
+        <label
+          ><input
+            type="checkbox"
+            [value]="product?.name"
+            (click)="onProductChange(product?.name)"
+          />
+          {{ product?.name }}</label
+        >
+      </div>
+      <div *ngIf="isSend && registerForm.controls['productos'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['productos'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
+
+    <div class="register-form__information">
+      <label
+        >¿Desea recibir información adicional a su correo electrónico?</label
+      >
+      <div class="register-form__information__options">
+        <input type="radio" value="false" formControlName="informacion" />
+        <label>No</label>
+        <input type="radio" value="true" formControlName="informacion" />
+        <label>Si</label>
+      </div>
+      <div *ngIf="isSend && registerForm.controls['informacion'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['informacion'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
+
+    <div class="register-form__confirmation">
+      <label
+        ><input type="checkbox" value="true" formControlName="terminos" />
+        ¿Aceptas nuestros términos y condiciones?
+      </label>
+      <div *ngIf="isSend && registerForm.controls['terminos'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['terminos'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="alert" *ngIf="showImage">
+  <div class="alert-success" *ngIf="showSuccessImage">
+    <img class="alert-success__image" src="../assets/success-img.png" alt="" />
+    <div class="alert-success__message">
+      <img
+        src="../assets/success-logo.png"
+        alt=""
+        style="max-width: 30px; padding-right: 15px"
+      />
+      Formulario enviado correctamente
+    </div>
+  </div>
+
+  <div class="alert-error" *ngIf="!showSuccessImage">
+    <img class="alert-error__image" src="../assets/error-img.png" alt="" />
+    <div class="alert-error__message">
+      <img
+        src="../assets/error-logo.png"
+        alt=""
+        style="max-width: 30px; padding-right: 15px"
+      />
+      Ocurrió un error con el formulario intente nuevamente
+    </div>
+  </div>
+</div>
+
+<div class="register-form__buttons">
+  <button (click)="reset()">Reiniciar</button>
+  <button (click)="send()" type="submit">Enviar</button>
+</div>
