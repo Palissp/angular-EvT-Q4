@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ProductService } from './product.service';
+import {ProductService} from './product.service';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {environment} from "../../../../environments/environment";
 import {ProductModel} from "../../../models/product.model";
@@ -15,7 +15,7 @@ describe('ProductService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         HttpClientTestingModule,
       ],
       providers: [ProductService],
@@ -34,7 +34,7 @@ describe('ProductService', () => {
   });
 
   it('get products', () => {
-    service.getProducts().subscribe( (products: ProductModel[]) => {
+    service.getProducts().subscribe((products: ProductModel[]) => {
       expect(products).toEqual(mockProducts)
     })
 
@@ -45,4 +45,4 @@ describe('ProductService', () => {
 
     req.flush(mockProducts);
   })
-  });
+});
