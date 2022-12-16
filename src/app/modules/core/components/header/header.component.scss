@@ -1,0 +1,11 @@
+@import '../../../../shared/style/variables';
+.content-image{
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    padding:20px;
+    img{
+        height: 44px;
+        width: 202px;
+    }
+}

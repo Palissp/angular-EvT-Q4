@@ -1,0 +1,51 @@
+
+@import '../../shared/style/variables';
+
+.btn {
+  color: $color-blue;
+  font-weight: bold;
+  padding: 16px 24px;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+  &:disabled{
+    background-color: $darkGrey200;
+    color:$darkGrey;
+  }
+}
+
+.btn-primary {
+  background-color: $color-yellow-500;
+  border: 1px solid $color-yellow-500;
+  &:hover {
+    background-color: $color-yellow-gold-500;
+    border: 1px solid $color-yellow-gold-500;
+  }
+  &:disabled{
+    background-color: $yellow200;
+  }
+}
+
+.btn-secondary {
+  background-color: $color-gray-blue-500;
+  border: 1px solid $color-gray-blue-500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-gray-blue-700;
+    border: 1px solid $color-gray-blue-700;
+  }
+}
+
+.btn-tertiary {
+  background-color: $warning200;
+  border: 1px solid $warning200;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $warning400;
+    border: 1px solid $warning400;
+  }
+}

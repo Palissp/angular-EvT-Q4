@@ -1,0 +1,41 @@
+@import '../../../shared/style/variables';
+
+select {
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid $darkGrey;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    padding: 14px 0 14px 10px;
+
+    &:focus {
+        outline: 0;
+        border: $darkGrey;
+        box-shadow: $box-shadow-form-focus;
+    }
+
+    &::placeholder {
+        color: $darkGrey;
+    }
+}
+
+
+select:required:invalid {
+    color: $error;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: $black;
+}
+
+
+// FORM CONTROL
+
+.ng-invalid.ng-touched {
+    border: 1px solid $error;
+}
