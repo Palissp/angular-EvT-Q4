@@ -8,7 +8,7 @@ import { RegisterViewComponent } from './register/register-view/register-view.co
 import {ReactiveFormsModule} from "@angular/forms";
 import {ProductService} from "./core/services/product-service/product.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {LocationService} from "./core/services/product-service/location.service";
+import {LocationService} from "./core/services/location-service/location.service";
 
 @NgModule({
   declarations: [

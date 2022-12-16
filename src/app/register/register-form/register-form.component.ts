@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../core/services/product-service/product.service";
 import {ProductModel} from "../../models/product.model";
 import {ProvinceModel} from "../../models/province.model";
-import {LocationService} from "../../core/services/product-service/location.service";
+import {LocationService} from "../../core/services/location-service/location.service";
 
 @Component({
   selector: 'app-register-form',

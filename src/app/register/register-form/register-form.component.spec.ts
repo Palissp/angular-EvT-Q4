@@ -6,7 +6,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ProductService} from "../../core/services/product-service/product.service";
 import {PRODUCTSMOCK} from "../../core/mocks/product.mock";
 import {of} from "rxjs";
-import {LocationService} from "../../core/services/product-service/location.service";
+import {LocationService} from "../../core/services/location-service/location.service";
 import {PROVINCESMOCK} from "../../core/mocks/province.mock";
 
 describe('RegisterFormComponent', () => {
