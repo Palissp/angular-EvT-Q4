@@ -1,0 +1,24 @@
+<div class="wrapper" [ngClass]="{ error: hasErrors }">
+  <app-typography [variant]="'bodyText'" color="black">{{
+    label
+  }}</app-typography>
+  <div class="input-container">
+    <input
+      [type]="type"
+      [placeholder]="placeholder"
+      [formControl]="formControl"
+    />
+  </div>
+</div>
+<div class="helpers">
+  <ng-container *ngIf="hasErrors">
+    <app-typography variant="tinyText" color="error">
+      {{ errorHelper }}
+    </app-typography>
+  </ng-container>
+  <ng-container *ngIf="normalHelper && !hasErrors">
+    <app-typography variant="tinyText" color="grey">
+      {{ normalHelper }}
+    </app-typography>
+  </ng-container>
+</div>

@@ -1,0 +1,12 @@
+@import "../../../../assets/scss/colors";
+
+.brand {
+  background: $white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 202px;
+    height: 44px;
+  }
+}

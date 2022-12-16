@@ -1,0 +1,99 @@
+<div class="register" *ngIf="showForm">
+  <form [formGroup]="productForm">
+    <div class="grid" *ngIf="!showStatusResult; else result">
+      <div class="grid-6">
+        <app-input
+          ngDefaultControl
+          label="Nombres"
+          [formControlName]="'fullname'"
+          [errorHelper]="'Este campo es requerido!'"
+        ></app-input>
+      </div>
+      <div class="grid-6">
+        <app-input
+          ngDefaultControl
+          label="Apellidos"
+          [formControlName]="'lastname'"
+          [errorHelper]="'Este campo es requerido!'"
+        ></app-input>
+      </div>
+      <div class="grid-6">
+        <app-input
+          ngDefaultControl
+          label="Correo Electrónico"
+          [formControlName]="'email'"
+          [errorHelper]="'Este campo es requerido!'"
+        ></app-input>
+      </div>
+      <div class="grid-6">
+        <app-input
+          ngDefaultControl
+          label="Número de teléfono"
+          [formControlName]="'phone'"
+          [errorHelper]="'Este campo es requerido!'"
+        ></app-input>
+      </div>
+      <div class="grid-6">
+        <app-select
+          ngDefaultControl
+          label="Provincia"
+          placeholder="Seleccione provincia"
+          formControlName="province"
+          [required]="true"
+          [data]="provinces"
+        >
+        </app-select>
+      </div>
+      <ng-container *ngIf="cantons">
+        <div class="grid-6">
+          <app-select
+            ngDefaultControl
+            label="Ciudad:"
+            placeholder="Seleccione ciudad"
+            formControlName="city"
+            [required]="true"
+            [data]="cantons"
+          >
+          </app-select>
+        </div>
+      </ng-container>
+      <div class="grid-12" *ngIf="products">
+        <app-checkbox
+          ngDefaultControl
+          label="Seleccione los productos a contratar:"
+          [data]="products"
+          formControlName="products"
+        ></app-checkbox>
+      </div>
+      <div class="grid-12">
+        <app-radio
+          ngDefaultControl
+          label="Desea recibir información adicional a su correo electrónico?"
+          [data]="optionRadio"
+          formControlName="aditionalInfo"
+        ></app-radio>
+      </div>
+      <div class="grid-12">
+        <app-checkbox
+          ngDefaultControl
+          [data]="term"
+          formControlName="terms"
+        ></app-checkbox>
+      </div>
+    </div>
+    <ng-template #result>
+      <app-result [type]="typeResult"></app-result>
+    </ng-template>
+    <div class="actions space-mt-36">
+      <app-button
+        [fullWidth]="true"
+        colors="secondary"
+        (clickbutton)="resetForm()"
+        >Reiniciar</app-button
+      >
+      <app-button [fullWidth]="true" colors="primary" (clickbutton)="save()"
+        >Enviar</app-button
+      >
+    </div>
+  </form>
+</div>

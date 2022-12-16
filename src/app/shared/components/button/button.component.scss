@@ -1,0 +1,166 @@
+@import "../../../../assets/scss/colors";
+
+.withoutWith {
+  width: 180px !important;
+}
+.fullWidth {
+  width: 100% !important;
+}
+
+.button {
+  border: none;
+  border-radius: 4px;
+  padding: 0px 12px;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--small {
+    height: 32px;
+  }
+
+  &--medium {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  &--large {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  &--extra-large {
+    height: 56px;
+    font-size: 14px;
+  }
+
+  &--primary {
+    background-color: $yellow900;
+    color: $info;
+
+    &:active {
+      background-color: $yellow800;
+    }
+
+    &:hover {
+      background-color: $yellow700;
+    }
+
+    &:focus {
+      background-color: $info;
+      border: 2px solid $yellow400;
+    }
+
+    &:disabled {
+      background-color: $yellow300;
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary;
+    color: $info;
+    border: 1px solid $secondary;
+
+    &:active {
+      background-color: $blue700;
+      border: 1px solid $blue800;
+    }
+
+    &:hover {
+      background-color: $darkGrey400;
+      border: 1px solid $blue600;
+    }
+
+    &:focus {
+      background-color: $white;
+      border: 2px solid $darkGrey400;
+    }
+
+    &:disabled {
+      background-color: $blue100;
+      color: $white;
+      border: 2px solid $blue100;
+    }
+  }
+
+  &--tertiary {
+    color: $darkGrey400;
+    border: 1px solid $darkGrey400;
+    background-color: $white;
+
+    &:active {
+      background-color: $blue400;
+      border: 1px solid $darkGrey400;
+    }
+
+    &:hover {
+      background-color: $white;
+      border: 1px solid $darkGrey400;
+    }
+
+    &:focus {
+      border: 1px solid $darkGrey400;
+      box-shadow: 0 0 0 2px $darkGrey400;
+    }
+
+    &:disabled {
+      border: 1px solid $white;
+      color: $white;
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+
+  &--complementary {
+    background-color: $darkGrey400;
+    color: $white;
+
+    &:active {
+      background-color: $blue700;
+    }
+
+    &:hover {
+      background-color: $blue600;
+    }
+
+    &:focus {
+      background-color: $darkGrey400;
+      border: 2px solid $darkGrey400;
+    }
+
+    &:disabled {
+      background-color: $white;
+      color: $blue100;
+    }
+  }
+
+  &--destructive {
+    background-color: $error500;
+    color: $white;
+
+    &:active {
+      background-color: $error700;
+    }
+
+    &:hover {
+      background-color: $error600;
+    }
+
+    &:focus {
+      background-color: $error500;
+      border: 2px solid $darkGrey400;
+    }
+
+    &:disabled {
+      background-color: $error200;
+      color: $danger100;
+    }
+  }
+}

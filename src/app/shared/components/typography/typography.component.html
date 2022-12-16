@@ -1,0 +1,86 @@
+<div
+  [ngSwitch]="variant"
+  [style.color]="getColor(color)"
+  class="align--{{ align }}"
+>
+  <h1
+    *ngSwitchCase="'h1'"
+    [style.font-family]="
+      weight === 'bold' ? 'PreloSlab-SemiBold' : 'PreloSlab-Book'
+    "
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h1>
+  <h2
+    *ngSwitchCase="'h2'"
+    [style.font-family]="
+      weight === 'bold' ? 'PreloSlab-SemiBold' : 'PreloSlab-Book'
+    "
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h2>
+  <h3
+    *ngSwitchCase="'h3'"
+    [style.font-family]="
+      weight === 'bold' ? 'PreloSlab-SemiBold' : 'PreloSlab-Book'
+    "
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h3>
+  <h4
+    *ngSwitchCase="'h4'"
+    [style.font-family]="
+      weight === 'bold' ? 'PreloSlab-SemiBold' : 'PreloSlab-Book'
+    "
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h4>
+  <h5
+    *ngSwitchCase="'h5'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h5>
+  <h6
+    *ngSwitchCase="'h6'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </h6>
+  <label
+    class="subtitle"
+    *ngSwitchCase="'subtitle'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </label>
+  <p
+    *ngSwitchCase="'bodyText'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </p>
+  <label
+    class="smallText"
+    *ngSwitchCase="'smallText'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </label>
+  <label
+    class="tinyText"
+    *ngSwitchCase="'tinyText'"
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </label>
+  <p
+    *ngSwitchDefault
+    [style.font-family]="weight === 'bold' ? 'Prelo-Bold' : 'Prelo-Medium'"
+  >
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </p>
+  <ng-template #text>
+    <ng-content></ng-content>
+  </ng-template>
+</div>

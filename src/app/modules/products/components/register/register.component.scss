@@ -1,0 +1,7 @@
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-gap: 63px;
+  justify-content: center;
+  padding-bottom: 42px;
+}

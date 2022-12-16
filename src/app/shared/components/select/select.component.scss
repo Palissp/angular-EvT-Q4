@@ -1,0 +1,39 @@
+@import "../../../../assets/scss/colors";
+
+select {
+  width: 100%;
+  margin: 5px 0;
+  border: 1px solid $border-form;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  &:focus {
+    outline: 0;
+    border: $border-form-focus;
+    box-shadow: $box-shadow-form-focus;
+  }
+
+  &::placeholder {
+    color: $color-medium;
+  }
+}
+
+select:required:invalid {
+  color: $color-medium; // placeholder color
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: $color-dark;
+}
+
+// FORM CONTROL
+
+.ng-invalid.ng-touched {
+  border: 1px solid $color-danger;
+}
