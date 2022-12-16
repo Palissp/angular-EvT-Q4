@@ -125,12 +125,17 @@ $wrap: "register-form";
 
     &--primary {
       background: #FFDD00;
+      &:disabled {
+        background: #FFF199;
+        color: #9FA8BE;
+      }
     }
 
     &--secondary {
       background: #E9ECF3;
       border: 1px solid #DEE3ED;
     }
+
   }
 
   &__button-section {

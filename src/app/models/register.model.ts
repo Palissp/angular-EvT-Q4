@@ -5,8 +5,6 @@ export interface RegisterModel {
   phone: string,
   provincia: string,
   ciudad: string,
-  productos: [
-    string
-  ],
+  productos: string [],
   informacion: true
 }
