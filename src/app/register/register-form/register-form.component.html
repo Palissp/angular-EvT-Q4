@@ -36,7 +36,7 @@
         <p class="register-form__label">
           Provincia
         </p>
-        <select name="select" class="register-form__select">
+        <select (change)="onSelectProvince($event)" name="select-province" class="register-form__select">
           <option *ngFor="let province of provinces" [value]="province.codigo">{{province.provincia}}</option>
         </select>
       </div>
@@ -44,7 +44,9 @@
         <p class="register-form__label">
           Ciudad
         </p>
-        <input class="register-form__input">
+        <select  name="select-city" class="register-form__select">
+          <option *ngFor="let city of cities" [value]="city.id">{{city.canton}}</option>
+        </select>
       </div>
     </div>
     <div class="register-form__row">

@@ -8,6 +8,7 @@ import {PRODUCTSMOCK} from "../../core/mocks/product.mock";
 import {of} from "rxjs";
 import {LocationService} from "../../core/services/location-service/location.service";
 import {PROVINCESMOCK} from "../../core/mocks/province.mock";
+import {CITIESMOCK} from "../../core/mocks/city.mock";
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
@@ -38,6 +39,7 @@ describe('RegisterFormComponent', () => {
   beforeEach(() => {
     locationService = TestBed.inject(LocationService);
     jest.spyOn(locationService, 'getProvinces').mockReturnValue(of(PROVINCESMOCK));
+    jest.spyOn(locationService, 'getCities').mockReturnValue(of(CITIESMOCK));
   })
 
   beforeEach(() => {
@@ -61,5 +63,12 @@ describe('RegisterFormComponent', () => {
     component.ngOnInit()
     expect(locationService.getProvinces).toHaveBeenCalled();
     expect(component.provinces).toStrictEqual(PROVINCESMOCK);
+  });
+
+  it('fill list of cities', () => {
+    component.ngOnInit()
+    expect(locationService.getProvinces).toHaveBeenCalled();
+    expect(locationService.getCities).toHaveBeenCalled();
+    expect(component.cities).toStrictEqual(CITIESMOCK);
   });
 });

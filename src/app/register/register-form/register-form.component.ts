@@ -4,6 +4,7 @@ import {ProductService} from "../../core/services/product-service/product.servic
 import {ProductModel} from "../../models/product.model";
 import {ProvinceModel} from "../../models/province.model";
 import {LocationService} from "../../core/services/location-service/location.service";
+import {CityModel} from "../../models/city.model";
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,7 @@ export class RegisterFormComponent implements OnInit {
   public registerForm: FormGroup;
   public products: ProductModel[] = [];
   public provinces: ProvinceModel[] = [];
-
+  public cities: CityModel[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -51,7 +52,19 @@ export class RegisterFormComponent implements OnInit {
   getProvinces() {
     this.locationService.getProvinces().subscribe(resp => {
       this.provinces = resp
-      console.log(this.provinces)
+      this.getCities(this.provinces[0].codigo)
+    })
+  }
+
+  onSelectProvince(event: Event) {
+    //@ts-ignore
+    this.getCities(event?.target?.value)
+  }
+
+  getCities(idProvinceSelected: string) {
+    this.locationService.getCities(idProvinceSelected).subscribe(resp => {
+      this.cities = resp
+      console.log(this.cities)
     })
   }
 
