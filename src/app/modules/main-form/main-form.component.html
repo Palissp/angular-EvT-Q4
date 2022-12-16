@@ -1,1 +1,81 @@
-<app-header></app-header>
+<div class="bodyCard">
+    <h1 class="bodyCard__title">Formulario de registro</h1>
+    <hr>
+    <form class="form">
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label" for="grid-first-name">
+                    Nombres
+                </label>
+                <input class="input__textInput" id="grid-first-name" type="text" placeholder="Nombres">
+                <p class="input__alertMessage">Este campo es requerido!</p>
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" for="grid-last-name">
+                    Apellidos
+                </label>
+                <input class="input__textInput" id="grid-last-name" type="text" placeholder="Doe">
+                <p class="input__alertMessage">Este campo es requerido!</p>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label" for="grid-first-name">
+                    Correo Electrónico
+                </label>
+                <input class="input__textInput" id="grid-first-name" type="text" placeholder="Jane">
+                <p class="input__alertMessage">Este campo es requerido!</p>
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" for="grid-last-name">
+                    Número de teléfono
+                </label>
+                <input class="input__textInput" id="grid-last-name" type="text" placeholder="Doe">
+                <p class="input__alertMessage">Este campo es requerido!</p>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label" for="grid-first-name">
+                    Provincia
+                </label>
+                <div class="relative">
+                    <select class="input__selectInput" id="grid-state">
+                        <option>New Mexico</option>
+                        <option>Missouri</option>
+                        <option>Texas</option>
+                    </select>
+                    <div class="input__selectInput__arrow">
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" for="grid-last-name">
+                    Ciudad
+                </label>
+                <div class="relative">
+                    <select class="input__selectInput" id="grid-state">
+                        <option>New Mexico</option>
+                        <option>Missouri</option>
+                        <option>Texas</option>
+                    </select>
+                    <div class="input__selectInput__arrow">
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+    <p class="bodyCard__text">
+        <img src="assets/success-logo.png" alt="success" class="bodyCard__text--icon">
+        <span class="bodyCard__text--text">Formulario enviado exitosamente</span>
+    </p>
+
+    <div>
+        <button class="button button--secondary">Reiniciar</button>
+        <button class="button button--primary">Enviar</button>
+    </div>
+</div>
