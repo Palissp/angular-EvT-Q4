@@ -12,7 +12,7 @@ describe('RegistrationService', () => {
 
     let myService: RegistrationService;
     let httpController: HttpTestingController
-    let API_URL = environment;
+    let API_URL = environment.apiHref;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
