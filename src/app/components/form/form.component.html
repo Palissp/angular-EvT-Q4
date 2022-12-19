@@ -1,0 +1,109 @@
+<div class="form">
+  <h3 class="form__title">Formulario de registro</h3>
+  <hr>
+  <form class="form__fields" [formGroup]="form" *ngIf="!requestDone">
+    <div class="row">
+      <div class="form__inputlabel">
+        <label for="first_names_input" class="form__label">Nombres</label>
+        <input type="text" class="form__input"
+          [ngClass]="{'form__input--invalid': form.controls['name'].touched && form.controls['name'].invalid}"
+          id="first_names_input" formControlName="name" maxlength="40">
+        <p *ngIf="form.controls['name'].touched && form.controls['name'].invalid" class="form__input__invalidtext">Este
+          campo es requerido</p>
+      </div>
+      <div class="form__inputlabel">
+        <label for="last_names_input" class="form__label">Apellidos</label>
+        <input type="text" class="form__input"
+          [ngClass]="{'form__input--invalid': form.controls['lastname'].touched && form.controls['lastname'].invalid}"
+          id="last_names_input" formControlName="lastname" maxlength="40">
+        <p *ngIf="form.controls['lastname'].touched && form.controls['lastname'].invalid"
+          class="form__input__invalidtext">Este campo es requerido</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form__inputlabel">
+        <label for="email_input" class="form__label">Correo electrónico</label>
+        <input type="text" class="form__input"
+          [ngClass]="{'form__input--invalid': form.controls['email'].touched && form.controls['email'].invalid}"
+          id="email_input" formControlName="email">
+        <p *ngIf="form.controls['email'].touched && form.controls['email'].invalid" class="form__input__invalidtext">
+          Este campo es requerido</p>
+      </div>
+      <div class="form__inputlabel">
+        <label for="phone_input" class="form__label">Número de teléfono</label>
+        <input type="text" class="form__input"
+          [ngClass]="{'form__input--invalid': form.controls['phone'].touched && form.controls['phone'].invalid}"
+          id="phone_input" formControlName="phone">
+        <p *ngIf="form.controls['phone'].touched && form.controls['phone'].invalid" class="form__input__invalidtext">
+          Este campo es requerido</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form__inputlabel">
+        <label for="province_input" class="form__label">Provincia</label>
+        <select type="text" class="form__input" (change)="onSelectProvince()"
+          [ngClass]="{'form__input--invalid': form.controls['provincia'].touched && form.controls['provincia'].invalid}"
+          id="province_input" formControlName="provincia">
+          <option *ngFor="let province of provinces" [value]="province.codigo">{{province.provincia}}</option>
+        </select>
+        <p *ngIf="form.controls['provincia'].touched && form.controls['provincia'].invalid"
+          class="form__input__invalidtext">Este campo es requerido</p>
+      </div>
+      <div class="form__inputlabel">
+        <label for="city_input" class="form__label">Ciudad</label>
+        <select type="text" class="form__input"
+          [ngClass]="{'form__input--invalid': form.controls['ciudad'].touched && form.controls['ciudad'].invalid}"
+          id="city_input" formControlName="ciudad">
+          <option *ngFor="let city of cities" [value]="city.id">{{city.canton}}</option>
+        </select>
+        <p *ngIf="form.controls['ciudad'].touched && form.controls['ciudad'].invalid" class="form__input__invalidtext">
+          Este
+          campo es requerido</p>
+      </div>
+    </div>
+    <div class="row row--justify-left">
+      <p class="form__subtitle">Seleccione los productos a contratar:</p>
+    </div>
+    <div class="row row--justify-left" *ngFor="let product of products">
+      <input type="checkbox" [name]="product.id" [id]="product.id" [value]="product.id"
+        (change)="onSelectProduct($event)">
+      <label [for]="product.id" class="form__label form__label--margin-left">{{product.name}}</label>
+    </div>
+    <p *ngIf="form.controls['productos'].touched && form.controls['productos'].invalid"
+      class="form__input__invalidtext">
+      Este campo es requerido</p>
+    <div class="row row--justify-left">
+      <p class="form__subtitle">Desea recibir información adicional a su correo electrónico?</p>
+    </div>
+    <div class="row row--justify-left">
+      <input type="radio" id="additional_info_checkbox_no" [value]="false" formControlName="informacion">
+      <label for="additional_info_checkbox_no"
+        class="form__label form__label--margin-left form__label--bold-no">No</label>
+      <input type="radio" class="form__radio--margin-left" [value]="true" id="additional_info_checkbox_yes"
+        formControlName="informacion">
+      <label for="additional_info_checkbox_yes"
+        class="form__label form__label--margin-left form__label--bold-no">Si</label>
+    </div>
+    <p *ngIf="form.controls['informacion'].touched && form.controls['informacion'].invalid"
+      class="form__input__invalidtext">Este campo es requerido</p>
+    <div class="row row--justify-left">
+      <input type="checkbox" name="" id="" formControlName="terms">
+      <label for="" class="form__label form__label--margin-left">¿Aceptas nuestros términos y condiciones?</label>
+    </div>
+    <p *ngIf="form.controls['terms'].touched && form.controls['terms'].invalid" class="form__input__invalidtext">Este
+      campo es requerido</p>
+    <div class="row row--padding-center">
+      <button class="button button--secondary">Reiniciar</button>
+      <button class="button button--primary" [ngClass]="{'button--disabled': form.invalid}"
+        (click)="onSend()">Enviar</button>
+    </div>
+  </form>
+  <div>
+    <img class="form__resultimg" *ngIf="success && requestDone" src="../../../assets/success-img.png" alt="">
+    <p>Envío exitoso</p>
+  </div>
+  <div>
+    <img class="form__resultimg" *ngIf="!success && requestDone" src="../../../assets/error-img.png" alt="">
+    <p>Ha ocurrido un error</p>
+  </div>
+</div>
