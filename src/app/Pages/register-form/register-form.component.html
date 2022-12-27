@@ -1,0 +1,133 @@
+<div class="">
+    <h2>Formulario de registro</h2>
+    <hr>
+  <div class="register__container">
+    <form class="register__form"  [formGroup]="formRegister" (submit)="addNewRegister()">
+      <!--            <pre> {{email.errors | json}} </pre>-->
+      <!--            <pre> {{password.errors| json}} </pre>-->
+      <!--            <pre> {{confirmPassword.errors| json}} </pre>-->
+
+    <div>
+
+      <label for="name" class="register__label"> Nombres
+      <input id="name" type="text" formControlName="name" class="register__input" placeholder="Ej. makoto">
+      </label>
+      <div *ngIf="isValid('name')" >
+        <small class="register__alert">Este campo es requerido</small></div>
+    </div>
+      <div>
+
+        <label for="lastname" class="register__label">Apellidos </label>
+        <input id="lastname" type="text" formControlName="lastname" class="register__input" placeholder="Ej. makoto">
+        <div *ngIf="isValid('lastname')" >
+          <small class="register__alert"></small>
+          <small class="register__alert"></small>
+
+        </div >
+      </div>
+
+      <div>
+
+        <label for="email" class="register__label"> Correo electrónico </label>
+        <input type="email"  formControlName="email" class="register__input"
+               placeholder="Ej. name@example.com">
+        <div *ngIf="isValid('email')" >
+          <small id="email" class="register__alert">Correo electrónico requerido</small>
+          <small class="register__alert">Ingrese un correo electrónico válido</small>
+        </div>
+      </div>
+
+      <div>
+
+        <label for="phone" class="register__label">Número de telefono </label>
+        <input type="phone"  formControlName="phone" class="register__input" placeholder="****">
+        <div *ngIf="isValid('phone')" >
+          <small id="phone" class="register__alert"></small>
+          <small class="register__alert"></small><br>
+          <small class="register__alert"></small>
+        </div>
+      </div>
+
+      <div>
+
+        <label>Provincia
+          <br><select class="register__input" formControlName="provincia">
+            <option *ngFor="let item of (provinviasLista$| async)" [value]="item.codigo" [innerHtml]="item.provincia">
+            </option>
+          </select><br><small *ngIf="isValid('provincia')" class="register__alert">
+            Este campo es requerido
+          </small></label>
+      </div>
+
+      <div>
+
+        <label>Ciudad
+          <br><select class="register__input" formControlName="ciudad">
+            <option *ngFor="let item of (ciudadesLista$| async)" [value]="item.id" [innerHtml]="item.canton">
+            </option>
+          </select><br><small *ngIf="isValid('ciudad')" class="register__alert">
+            Este campo es requerido
+          </small></label>
+      </div>
+      <div>
+
+        <label>Seleccione los productos a contratar:
+          <div *ngFor="let control of productosLista$ | async; let i = index;" id="align" class="category__list">
+            <label class="category__label" for="checkbox{{i}}">{{control.name}}</label>
+            <input [formControl]="control" (change)="getSelectedProductsValue()" type="checkbox" formControlName=""
+                   class="category__checkbox" id="checkbox{{i}}" [value]="control.id">
+          </div>
+        </label>
+        <small *ngIf="productErrors && checkProductsControlTouched()" class="form__alert">
+          Debe seleccionar al menos 2 productos y maximo 4</small>
+      </div>
+       <div >
+
+        <label>Desea recibir información adicional a su correo electrónico </label>
+        <div class="form-check">
+          <input class="form-check__input"
+                 type="radio"
+                 value="false"
+                 formControlName="informacion"
+                 id="radioNo">
+          <label class="form-check-label" for="radioNo">
+            No
+          </label>
+        </div>
+         <div class="form-check">
+           <input class="form-check__input"
+                  type="radio"
+                  value="true"
+                  formControlName="informacion"
+                  id="radioSi">
+           <label class="form-check-label" for="radioSi">
+             Sí
+           </label>
+         </div>
+       </div>
+        <!-- Switches -->
+        <div class="">
+          <div class="">
+            <div class="">
+              <input class=""
+                     type="checkbox"
+                     formControlName="condiciones"
+                     id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Términos y condiciones de uso
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class=" register__button register__button--actions">
+            <button class="register__button--secondary" (click)="resetForm()">Reiniciar</button>
+            <input type="submit" value="Enviar" class="register__button register__button--primary">
+          </div>
+        </div>
+
+
+    </form>
+  </div>
+
