@@ -20,7 +20,7 @@ export class RegisterFormComponent  {
   constructor(private formBuilder: FormBuilder,
               private registerService: RegisterFormService) {
     this.buildForm();
-    this.provinviasLista$ = this.registerService.getProvincias()
+    this.provinviasLista$ = this.registerService.getProvincias();
 
     this.productosLista$ = this.registerService.getProduct();
     this.ciudadesLista$ = this.registerService.getProvinciasPorId('AZ');

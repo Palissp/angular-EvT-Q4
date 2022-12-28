@@ -20,7 +20,7 @@
         <label for="lastname" class="register__label">Apellidos </label>
         <input id="lastname" type="text" formControlName="lastname" class="register__input" placeholder="Ej. makoto">
         <div *ngIf="isValid('lastname')" >
-          <small class="register__alert"></small>
+          <small class="register__alert">Este campo es requerido</small>
           <small class="register__alert"></small>
 
         </div >
@@ -42,7 +42,7 @@
         <label for="phone" class="register__label">Número de telefono </label>
         <input type="phone"  formControlName="phone" class="register__input" placeholder="****">
         <div *ngIf="isValid('phone')" >
-          <small id="phone" class="register__alert"></small>
+          <small id="phone" class="register__alert">Este campo es requerido</small>
           <small class="register__alert"></small><br>
           <small class="register__alert"></small>
         </div>
@@ -52,7 +52,7 @@
 
         <label>Provincia
           <br><select class="register__input" formControlName="provincia">
-            <option *ngFor="let item of (provinviasLista$| async)" [value]="item.codigo" [innerHtml]="item.provincia">
+            <option *ngFor="let item of (provinviasLista$ | async)" [value]="item.codigo" [innerHtml]="item.provincia">
             </option>
           </select><br><small *ngIf="isValid('provincia')" class="register__alert">
             Este campo es requerido
@@ -69,19 +69,19 @@
             Este campo es requerido
           </small></label>
       </div>
-      <div>
+<!--      <div>-->
 
-        <label>Seleccione los productos a contratar:
-          <div *ngFor="let control of productosLista$ | async; let i = index;" id="align" class="category__list">
-            <label class="category__label" for="checkbox{{i}}">{{control.name}}</label>
-            <input [formControl]="control" (change)="getSelectedProductsValue()" type="checkbox" formControlName=""
-                   class="category__checkbox" id="checkbox{{i}}" [value]="control.id">
-          </div>
-        </label>
-        <small *ngIf="productErrors && checkProductsControlTouched()" class="form__alert">
-          Debe seleccionar al menos 2 productos y maximo 4</small>
-      </div>
-       <div >
+<!--        <label>Seleccione los productos a contratar:-->
+<!--          <div *ngFor="let control of productosLista$ | async; let i = index;" id="align" class="category__list">-->
+<!--            <label class="category__label" for="checkbox{{i}}">{{control.name}}</label>-->
+<!--            <input [formControl]="control" (change)="getSelectedProductsValue()" type="checkbox" formControlName=""-->
+<!--                   class="category__checkbox" id="checkbox{{i}}" [value]="control.id">-->
+<!--          </div>-->
+<!--        </label>-->
+<!--        <small *ngIf="productErrors && checkProductsControlTouched()" class="form__alert">-->
+<!--          Debe seleccionar al menos 2 productos y maximo 4</small>-->
+<!--      </div>-->
+    <div >
 
         <label>Desea recibir información adicional a su correo electrónico </label>
         <div class="form-check">

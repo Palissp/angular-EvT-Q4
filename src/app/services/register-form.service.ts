@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Productos} from "../interfaces/productos.interface";
 import {environment} from "../../environments/environment";
@@ -28,7 +28,7 @@ export class RegisterFormService {
   }
 
   getProvincias(): Observable<Provincias[]> {
-    return this.http.get<Provincias[]>(this.apiUrlProvincias )
+    return this.http.get<Provincias[]>(this.apiUrlProvincias ).pipe(map(res => res as Provincias[]))
   }
 
   getProvinciasPorId(id: any): Observable<ProvinciasID[]> {
