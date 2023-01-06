@@ -1,0 +1,121 @@
+<div class="logo"></div>
+<div class="mbody">
+
+    <div class="card">
+        <div class="title_1">
+            <span class="title_2">Formulario de registro</span>
+        </div>
+        <div class="f_body">
+            <form [formGroup]="registerForm" novalidate>
+                <div class="line">
+                    <div>
+                        <label for="names" class="label">Nombres</label>
+                        <input class="input_normal" type="text" id="names" name="names" #names required maxlength="40"
+                            minlength="4" formControlName="names" required>
+                        <div>
+                            <span class="msn-error" *ngIf="registerForm.controls['names'].hasError('required')">Campo
+                                obligatorio</span>
+                                <span class="msn-error" *ngIf="registerForm.controls['names'].hasError('minlength')">Min length es 4
+                                </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="surname" class="label">Apellidos</label>
+
+                        <input class="input_normal" type="text" #surname required maxlength="40" minlength="4"
+                            formControlName="surname" required>
+                        <div>
+                            <span class="msn-error" *ngIf="registerForm.controls['surname'].hasError('required')">Campo
+                                obligatorio</span>
+                                <span class="msn-error" *ngIf="registerForm.controls['surname'].hasError('minlength')">Min length es 4
+                                    </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line">
+                    <div>
+                        <label for="email" class="label">Correo electrónico</label>
+                        <input class="input_normal" type="email" #email required formControlName="email" required>
+                        <div>
+                            <span class="msn-error" *ngIf="registerForm.controls['email'].hasError('required')">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="telephone" class="label">Número de teléfono</label>
+
+                        <input class="input_normal" type="number" #telephone required formControlName="telephone" required>
+                        <div>
+                            <span class="msn-error"
+                                *ngIf="registerForm.controls['telephone'].hasError('required')">Campo obligatorio</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line">
+                    <div>
+                        <label for="state" class="label">Provincia</label>
+                        <select class="select_normal" type="text" #state required formControlName="state" (change)="getCities($event)" required>
+                            <option *ngFor="let st of states" [ngValue]="st.codigo">
+                                {{ st.provincia }}
+                              </option>
+                        </select>
+                        <div>
+                            <span class="msn-error" *ngIf="registerForm.controls['state'].hasError('required')">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="city" class="label">Ciudad</label>
+
+
+                        <select class="select_normal" id="city" name="city" #city formControlName="city" required>
+                            <option *ngFor="let item of cities" [ngValue]="item.id">{{item.canton}}</option>
+                        </select>
+                        <div>
+                            <span class="msn-error" *ngIf="registerForm.controls['city'].hasError('required')">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <h4>Seleccionar las productos a contratar</h4>
+                    <div *ngFor="let product of products">
+                    <input type="checkbox" [id]="product.id" [name]="product.name" [value]="product.name">
+                    <label> {{product.name}}</label><br>
+                </div>
+                    
+                </div>
+                <div>
+                    <h4>Desea recibir informacion adicional a su correo electronico:</h4>
+                      <input type="radio" id="no" name="radio" value="no" checked="checked">
+                      <label for="no">NO</label>
+                      <input type="radio" id="si" name="radio" value="si">
+                      <label for="si">SI</label><br>
+
+                </div>
+                <br>
+                <div>
+                    <input type="checkbox" id="accept" name="accept" value="accept" required>
+                    <label for="accept"> Aceptas nuestras terminos y condiciones?</label><br>
+                </div>
+                <div class="line">
+                <button class="boton-amarillo-secundario flot-right-bnt" type="button" >
+                    <span>Reiniciar</span>
+                </button>
+                <button class="boton-amarillo-secundario flot-right-bnt" type="button" [disabled]="registerForm.invalid">
+                    <span>Enviar </span>
+                </button>
+            </div>
+            </form>
+
+        </div>
+        
+
+
+    </div>
+    
+
+</div>
