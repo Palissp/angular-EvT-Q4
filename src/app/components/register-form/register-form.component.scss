@@ -1,0 +1,159 @@
+.mbody {
+    width: 1440px;
+    height: 941px;
+    top: 83px;
+    left: 0px;
+    background: #F3F6f9;
+    position: absolute;
+}
+
+.logo {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: url(/assets/banco-logo.png) no-repeat top center;
+
+
+}
+
+.card {
+    position: absolute;
+    width: 686px;
+    height: 783px;
+    right: 377px;
+    top: 79px;
+    background: #FFFFFF;
+
+}
+
+.title_1 {
+    position: absolute;
+    width: 686px;
+    height: 91px;
+    left: calc(50% - 686px/2);
+    top: calc(50% - 91px/2 - 346px);
+}
+
+.title_2 {
+    position: absolute;
+    width: 332px;
+    height: 30px;
+    left: calc(50% - 332px/2);
+    top: calc(50% - 30px/2 + 0.5px);
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 24px;
+    /* or 75% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+.f_body {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 684px;
+    height: 578px;
+    left: 2px;
+    top: 91px;
+
+    border-top: 2px solid rgba(44, 44, 48, 0.42);
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+
+    width: 155px;
+    height: 16px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.input_normal {
+    width: 288px;
+    height: 48px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.input_error {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: relative;
+    width: 288px;
+    height: 96px;
+
+}
+
+.select_normal{
+    width: 288px;
+height: 48px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;}
+
+.msn-error{
+    width: 230px;
+height: 16px;
+
+font-family: 'Prelo';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 133% */
+
+
+/* Banco Pichincha/Alert/Error/500 */
+
+color: #D50707;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
