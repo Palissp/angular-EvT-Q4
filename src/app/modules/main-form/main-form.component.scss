@@ -1,0 +1,135 @@
+.bodyCard {
+  background: white;
+  width: 686px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bodyCard__title {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.bodyCard__text {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.bodyCard__text--icon {
+  height: 1.5rem;
+  position: absolute;
+}
+
+.bodyCard__text--text {
+  padding-left: 1.75rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.form__row {
+  display: flex;
+
+
+}
+
+.form__textInput {
+  width: 50%;
+  max-width: 50%;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.input__label {
+  display: block;
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  color: #2C2C30;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.input__textInput {
+  appearance: none;
+  display: block;
+  width: 100%;
+  background-color: #white;
+  color: #2C2C30;
+  border: 1px solid #2C2C30;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+
+}
+
+.input__textInput:hover {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  background: white;
+}
+
+.input__alertMessage {
+  color: #D50707;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+}
+
+.input__selectInput {
+  display: block;
+  appearance: none;
+  width: 100%;
+  background-color: #white;
+  color: #2C2C30;
+  border: 1px solid #2C2C30;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+
+}
+
+.input__selectInput:hover {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  background: white;
+}
+
+.input__selectInput__arrow {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: #2C2C30;
+}
+
+.arrow {
+  fill: currentColor;
+  height: 1rem;
+  width: 1rem;
+}
+
+
