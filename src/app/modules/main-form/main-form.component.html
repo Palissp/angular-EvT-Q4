@@ -1,0 +1,140 @@
+<div class="bodyCard">
+    <h1 class="bodyCard__title">Formulario de registro</h1>
+    <hr>
+    <form class="form" [formGroup]="form">
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label">
+                    Nombres
+                </label>
+                <input class="input__textInput" type="text" placeholder="Nombres" name="name" formControlName="name" [(ngModel)]="example.name" >
+                <div class="input__alertMessage my-3" *ngIf="form.controls['name'].invalid">
+                  <span class="msn error">
+                    {{getErrorMessage('name')}}</span>
+                </div>
+
+
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" >
+                    Apellidos
+                </label>
+                <input class="input__textInput" type="text" placeholder="Apellido" name="lastName" formControlName="lastName" [(ngModel)]="example.lastName">
+                <div class="input__alertMessage my-3" *ngIf="form.controls['lastName'].invalid">
+                  <span class="msn error">
+                    {{getErrorMessage('lastName')}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label" >
+                    Correo Electrónico
+                </label>
+                <input class="input__textInput" id="email" type="text" placeholder="email"  name="email" formControlName="email" [(ngModel)]="example.email">
+                <div class="input__alertMessage my-3" *ngIf="form.controls['email'].invalid">
+                  <span class="msn error">
+                    {{getErrorMessage('email')}}</span>
+                </div>
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" >
+                    Número de teléfono
+                </label>
+                <input class="input__textInput" id="phone" type="text" placeholder="phone"   name="phone" formControlName="phone" [(ngModel)]="example.phone">
+                <div class="input__alertMessage my-3" *ngIf="form.controls['phone'].invalid">
+                  <span class="msn error">
+                    {{getErrorMessage('phone')}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__textInput">
+                <label class="input__label" >
+                    Provincia
+                </label>
+                <div class="relative" *ngIf="estadoProvincias.length>0">
+                    <select class="input__selectInput" id="province"
+                    formControlName="provincia"
+                    >
+                    <option value="">--Ninguno--</option>
+                        <option *ngFor="let item of estadoProvincias" value="item.codigo">{{item.provincia}}</option>
+                    </select>
+                    <div class="input__alertMessage my-3" *ngIf="form.controls['provincia'].invalid">
+                      <span class="msn error">
+                        {{getErrorMessage('provincia')}}</span>
+                    </div>
+
+                    <div class="input__selectInput__arrow">
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="form__textInput">
+                <label class="input__label" >
+                    Ciudad
+                </label>
+                <div class="relative">
+                    <select class="input__selectInput" id="city">
+                      <option value="">--Ninguno--</option>
+                        <option>Ibarra</option>
+                        <option>Atuntaqui</option>
+                        <option>Pimampiro</option>
+                        <option>Cotacahi</option>
+                        <option>San Antonio</option>
+
+                    </select>
+                    <div class="input__selectInput__arrow">
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+          Seleccione los productos a contratar:<br>
+            <ng-container *ngFor="let producto of productos">
+            <label><input type="checkbox"  value="producto.id"> {{producto.name}}</label><br>
+            </ng-container>
+
+
+        </div>
+        <div>
+          <label>Desea recibir información adicional a su correo electrónico?</label> <br>
+          <input type="radio" [value]="true" formControlName="informacion">SI
+          <input type="radio" [value]="false" formControlName="informacion">NO
+          <div class="input__alertMessage my-3" *ngIf="form.controls['informacion'].invalid">
+            <span class="msn error">
+              {{getErrorMessage('informacion')}}</span>
+          </div>
+
+
+        </div>
+        <div>
+          <input type="checkbox" [value]="true" formControlName="condiciones">
+          <label>¿Aceptas nuestros términos y condiciones?</label> <br>
+
+
+          <div class="input__alertMessage my-3" *ngIf="form.controls['condiciones'].invalid">
+            <span class="msn error">
+              {{getErrorMessage('condiciones')}}</span>
+          </div>
+
+
+        </div>
+
+
+        <p class="bodyCard__text">
+            <img src="assets/success-logo.png" alt="success" class="bodyCard__text--icon">
+            <span class="bodyCard__text--text">Formulario enviado exitosamente</span>
+        </p>
+
+        <div>
+            <button (click)="retry()" class="button button--secondary">Reiniciar</button>
+            <button type="submit" (click)="submitNewRegistration()" class="button button--primary">Enviar</button>
+        </div>
+    </form>
+</div>

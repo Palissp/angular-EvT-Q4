@@ -1,0 +1,60 @@
+export const EXP_REGULARES = {
+    SOLO_DIGITOS: new RegExp(/^([0-9]){1}$/),
+    SOLO_TEXTO: new RegExp(/^([\wáÝéÉíÝóÓúÚñÑüÜ]|\s){1}$/),
+    ALPHANUMERIC : new RegExp(/^[a-z0-9]+$/i),
+    LATIN_ALPHABET_AND_NUMERIC : new RegExp(/^[a-zA-Z0-9\sáÝéÉíÝóÓúÚñÑüÜ]+$/i),
+    NUMERACION_VAL : new RegExp(/^[a-z\d\s\wáÝéÉíÝóÓúÚñÑüÜ\-]+$/i),
+    SOLO_CARTAS : new RegExp( /^[a-zA-ZwáÝéÉíÝóÓúÚñÑüÜ\s]*$/),
+    TEXTO_DIRECCIONES: new RegExp(/^([\wáÝéÉíÝóÓúÚñÑüÜ]|\s|\,|\.){1}$/),
+    TEXTO_NOMBRES: new RegExp(/^([\wáÝéÉíÝóÓúÚñÑüÜ]|\s){1}$/),
+    CARACTERES_CEDULA: new RegExp(/^\d{10}$/),
+    CARACTERES_CONTRASENNA: new RegExp(/^(\d|[\+|\-|\!|\*|\@|\%|\$]|[A-Z]|[a-z]){0,1}$/),
+    CARACTERES_FECHA: new RegExp(/^\d{0,1}\/{0,1}$/),
+    CARACTERES_HUELLA: new RegExp(/^([a-zA-Z]|\d){0,1}$/),
+    CARACTERES_MAIL: new RegExp(/^\w{0,1}[\|@|\-|\.|\_]{0,1}$/),
+    EMAIL_PATTERN: new RegExp( /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+    VALOR_FINAL_CONTRASENNA: new RegExp(/^(?=.*\d)(?=.*[\+|\-|\!|\*|\@|\%|\$])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/),
+    VALOR_FINAL_FECHA: new RegExp(/^[0-3]{1}\d{1}\/{1}[0-1]{1}\d{1}\/{1}\d{4}$/),
+    VALOR_FINAL_HUELLA: new RegExp(/^[a-zA-Z]{1}\d{4}[a-zA-Z]{1}\d{0,4}$/),
+    VALOR_FINAL_MAIL: new RegExp(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/),
+    VALOR_FINAL_OTP: new RegExp(/^\d{6}$/),
+    FECHA_FORMATO : new RegExp(/^\d{4}[\/.]\d{1,2}[\/.]\d{1,2}$/),
+    // custom
+    TWO_DECIMAL_POINT : new RegExp(/^\d*\.?\d{0,1}$/),
+    DECIMAL_POINT : new RegExp(/^\d*\.?\d{0,2}$/),
+    CELULAR_VAL : new RegExp(/^09\d{8}$/),
+    TELEFONO_FIJO : new RegExp(/^0\d{8}$/),
+    REGEXP_LETRAS_NUMEROS: new RegExp( /^[a-zA-Z0-9]*$/),
+    REGEXP_LETRAS_NUMEROS_GUION: new RegExp( /^[a-zA-Z0-9-]*$/),
+    REGEXP_CARACTERES_NOMBRE_APELLIDO_CIUDAD: new RegExp( /^[a-zA-ZñÑ ]*$/),
+    REGEXP_CARACTERES_DIR_CALLE: new RegExp( /^[a-zA-ZñÑ0-9- ]*$/),
+    NUMERO_BARA : new RegExp(/[0-9/]/),
+    DOS_NOMBRES: new RegExp(/^([A-Za-zÝÉÝÓÚñáéíóúÑ]{0}?[A-Za-zÝÉÝÓÚñáéíóúÑ\']+[\s])+([A-Za-zÝÉÝÓÚñáéíóúÑ]{0}?[A-Za-zÝÉÝÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÝÉÝÓÚñáéíóúÑ]{0}?[A-Za-zÝÉÝÓÚñáéíóúÑ\'])?$/),
+    NOMBRE_EMPRESA : new RegExp(/^[a-zA-Z0-9\sáÝéÉíÝóÓúÚñÑüÜ&]+$/i),
+    TREE_DECIMAL_POINT : new RegExp(/^\d*\.?\d{0,2}$/),
+    ALPHANUMERIC_UNDERSCORE : new RegExp (/^[a-zA-Z0-9-_\sáÝéÉíÝóÓúÚñÑüÜ]+$/i),
+    SOLO_NUMEROS:new RegExp (/[0-9][0-9]*$/),
+    FOUR_INTEGER_TWO_DECIMAL_POINT : new RegExp(/^\d{0,4}\.?\d{0,1}$/),
+    NUMERICO_CLIENTE : new RegExp(/^([0-9]{1,13}(\.[0-9]{1,2})?)$/),
+    NUMERICO_CLIENTE_SEPARADOR_MILES : new RegExp(/^[0-9.,]{0,20}$/i),
+    ALPHANUMERIC_CLIENTE : new RegExp(/^[a-zA-Z0-9\sáÝéÉíÝóÓúÚñÑüÜ&]+$/i),
+    TELEFONOFIJO_CLIENTE_ECUADOR :  new RegExp(/^([2-7]){1}([0-9]){6}$/),
+    TELEFONOCELULAR_CLIENTE_ECUADOR :  new RegExp(/^([3-9]){1}[0-9]{7}$/),
+    TELEFONOFIJO_CLIENTE_ESPANA :  new RegExp(/^([9]){1}([0-9]){8}$/),
+    TELEFONOCELULAR_CLIENTE_ESPANA :  new RegExp(/^([6-7]){1}([0-9]){8}$/),
+    TELEFONOFIJOCELULAR_CLIENTE_ESPANA_REFERENCIAS :  new RegExp(/^([6-7-9]){1}([0-9]){8}$/),
+    TELEFONOFIJO_CLIENTE_OTRO :  new RegExp(/^([0-9]){1,9}$/),
+    TELEFONO_CELULAR_CONTACTO_CLIENTE_ECUADOR :  new RegExp(/^([0]){1}([9]){1}([3-9]){1}([0-9]){7}$/),
+    SOLO_TEXTO_CLIENTE: new RegExp( /^[a-zA-ZñÑ ]*$/),
+    SITIO_WEB_CLIENTE: new RegExp(/^([A-Z0-9_-]+\.){1,2}[A-Z]{2,30}(\.[A-Z]{2,30})$/),
+    SOLO_ENTEROS_CLIENTE : new RegExp(/^([0-9]{1,13}?)$/),
+    TELEFONOCELULAR_ECUADOR :  new RegExp(/^([593]){3}[0-9]{7}$/),
+
+
+
+
+  };
+
+
+
+

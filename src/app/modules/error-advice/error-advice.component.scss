@@ -1,0 +1,33 @@
+.bodyCard {
+  background: white;
+  width: 686px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bodyCard__title {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.bodyCard__img {
+  height: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bodyCard__text{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.bodyCard__text--icon{
+  height: 1.5rem ;
+  position: absolute;
+}
+.bodyCard__text--text{
+  padding-left: 1.75rem;
+}
