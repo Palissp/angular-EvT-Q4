@@ -54,9 +54,16 @@
                     Provincia
                 </label>
                 <div class="relative" *ngIf="estadoProvincias.length>0">
-                    <select class="input__selectInput" id="province">
-                        <option *ngFor="let item of estadoProvincias">{{item.provincia}}</option>
+                    <select class="input__selectInput" id="province"
+                    formControlName="provincia"
+                    >
+                    <option value="">--Ninguno--</option>
+                        <option *ngFor="let item of estadoProvincias" value="item.codigo">{{item.provincia}}</option>
                     </select>
+                    <div class="input__alertMessage my-3" *ngIf="form.controls['provincia'].invalid">
+                      <span class="msn error">
+                        {{getErrorMessage('provincia')}}</span>
+                    </div>
 
                     <div class="input__selectInput__arrow">
                         <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -71,7 +78,7 @@
                 </label>
                 <div class="relative">
                     <select class="input__selectInput" id="city">
-                      <option></option>
+                      <option value="">--Ninguno--</option>
                         <option>Ibarra</option>
                         <option>Atuntaqui</option>
                         <option>Pimampiro</option>
@@ -88,10 +95,33 @@
             </div>
         </div>
         <div>
-          Seleccione los productos a contratar:
+          Seleccione los productos a contratar:<br>
             <ng-container *ngFor="let producto of productos">
             <label><input type="checkbox"  value="producto.id"> {{producto.name}}</label><br>
             </ng-container>
+
+
+        </div>
+        <div>
+          <label>Desea recibir información adicional a su correo electrónico?</label> <br>
+          <input type="radio" [value]="true" formControlName="informacion">SI
+          <input type="radio" [value]="false" formControlName="informacion">NO
+          <div class="input__alertMessage my-3" *ngIf="form.controls['informacion'].invalid">
+            <span class="msn error">
+              {{getErrorMessage('informacion')}}</span>
+          </div>
+
+
+        </div>
+        <div>
+          <input type="checkbox" [value]="true" formControlName="condiciones">
+          <label>¿Aceptas nuestros términos y condiciones?</label> <br>
+
+
+          <div class="input__alertMessage my-3" *ngIf="form.controls['condiciones'].invalid">
+            <span class="msn error">
+              {{getErrorMessage('condiciones')}}</span>
+          </div>
 
 
         </div>

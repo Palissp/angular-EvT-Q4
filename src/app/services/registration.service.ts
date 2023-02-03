@@ -16,7 +16,7 @@ import {CantonInterface} from "../data/interfaces/canton.interface";
     providedIn: 'root',
 })
 export class RegistrationService {
-    private URL = environment.apiHref;
+    private URL = environment.apiReferencia;
     private httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
     };

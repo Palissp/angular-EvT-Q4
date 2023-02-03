@@ -42,7 +42,8 @@ export class MainFormComponent implements OnInit {
             provincia: ['',[Validators.required]],
             ciudad: ['',[Validators.required]],
             productos: [],
-            informacion: false,
+            informacion: ['',[Validators.required]],
+            condiciones:['',[Validators.required]],
 
         });
     }

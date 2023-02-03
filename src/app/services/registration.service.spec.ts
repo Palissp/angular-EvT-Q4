@@ -4,7 +4,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {RegistrationService} from "./registration.service";
 import {environment} from "../../environments/environment";
 import {RegistrationFormInterface} from "../data/interfaces/registrationForm.interface";
-import {ProductosInterface} from "../data/interfaces/productos.interface";
+
 
 
 
@@ -12,7 +12,7 @@ describe('RegistrationService', () => {
 
     let myService: RegistrationService;
     let httpController: HttpTestingController
-    let API_URL = environment.apiHref;
+    let API_URL = environment.apiReferencia;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -31,7 +31,7 @@ describe('RegistrationService', () => {
         expect(myService).toBeTruthy();
     });
 
-    it('test fn #getProductos', (doneFn) => {
+    it('Encontrar #getProductos', (doneFn) => {
 
         const mockData: any = {}
 
@@ -45,7 +45,7 @@ describe('RegistrationService', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);
     });
-    it('test fn #getEstadoProvincias', (doneFn) => {
+    it('Encontrar #getEstadoProvincias', (doneFn) => {
 
         const mockData: any = {}
 
@@ -59,7 +59,7 @@ describe('RegistrationService', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);
     });
-    it('test fn #getProvinciaById', (doneFn) => {
+    it('Encontratrar #getProvinciaById', (doneFn) => {
 
         const mockData: any = {}
         const mockParameter= "PAS"
@@ -74,7 +74,7 @@ describe('RegistrationService', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(mockData);
     });
-    it('should return a new RegistrationFormInterface', (doneFn) => {
+    it('should return un Nuevo Registro', (doneFn) => {
         // Arrange
 
         const mockData: RegistrationFormInterface = {
